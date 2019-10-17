@@ -1,0 +1,1 @@
+copy ExternalLibs/glew-2.1.0/bin/Release/Win32/glew32.dll Debug/glew32.dll
