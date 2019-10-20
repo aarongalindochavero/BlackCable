@@ -29,7 +29,7 @@ bool Menu::Input(int keyInput)
 	std::cout << " Menu Input" << std::endl;
 	if (keyInput == 27)
 	{
-		exit(1);
+	//	exit(1);
 	}
 	else
 	{

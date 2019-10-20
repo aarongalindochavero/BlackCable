@@ -19,6 +19,10 @@ void GameStateManager::GameLoop()
 			if (states.size() == 0)
 				throw std::exception("Error");
 			auto state = states.top();
+			if (state == nullptr)
+			{
+				break;
+			}
 			platform->CheckEvent(state, &GameState::Input);
 			state->Update();
 			state->Draw();

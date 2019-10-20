@@ -1,48 +1,46 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Archivos de origen">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Archivos de encabezado">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
     <Filter Include="Archivos de recursos">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="BCE">
+      <UniqueIdentifier>{0039e17c-9ad2-445f-9baf-755fc38d0879}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{2317a8ee-ecfa-4357-ba84-532eb69df2b7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BCE\GameState.cpp">
+      <Filter>BCE</Filter>
+    </ClCompile>
+    <ClCompile Include="BCE\GameStateManager.cpp">
+      <Filter>BCE</Filter>
+    </ClCompile>
+    <ClCompile Include="BCE\Platform.cpp">
+      <Filter>BCE</Filter>
+    </ClCompile>
     <ClCompile Include="main.cpp">
-      <Filter>Archivos de recursos</Filter>
-    </ClCompile>
-    <ClCompile Include="GameState.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="Platform.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="GameStateManager.cpp">
-      <Filter>Archivos de origen</Filter>
+      <Filter>Game</Filter>
     </ClCompile>
     <ClCompile Include="Menu.cpp">
-      <Filter>Archivos de origen</Filter>
+      <Filter>Game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GameState.h">
-      <Filter>Archivos de encabezado</Filter>
+    <ClInclude Include="BCE\Platform.h">
+      <Filter>BCE</Filter>
     </ClInclude>
-    <ClInclude Include="Platform.h">
-      <Filter>Archivos de encabezado</Filter>
+    <ClInclude Include="BCE\GameState.h">
+      <Filter>BCE</Filter>
     </ClInclude>
-    <ClInclude Include="GameStateManager.h">
-      <Filter>Archivos de encabezado</Filter>
+    <ClInclude Include="BCE\GameStateManager.h">
+      <Filter>BCE</Filter>
     </ClInclude>
     <ClInclude Include="Menu.h">
-      <Filter>Archivos de encabezado</Filter>
+      <Filter>Game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
