@@ -77,3 +77,12 @@ void Platform::CheckEvent(GameState* obj, bool (GameState::* f)(int))
 {
 	glfwPollEvents();
 }
+int Platform::GetWidth()
+{
+	return width;
+}
+
+int Platform::GetHeight()
+{
+	return height;
+}

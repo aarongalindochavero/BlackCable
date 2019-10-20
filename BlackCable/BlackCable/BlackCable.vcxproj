@@ -128,14 +128,18 @@
   <ItemGroup>
     <ClCompile Include="BCE\GameState.cpp" />
     <ClCompile Include="BCE\GameStateManager.cpp" />
+    <ClCompile Include="BCE\Mesh.cpp" />
     <ClCompile Include="BCE\Platform.cpp" />
+    <ClCompile Include="BCE\Shader.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Menu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BCE\GameState.h" />
     <ClInclude Include="BCE\GameStateManager.h" />
+    <ClInclude Include="BCE\Mesh.h" />
     <ClInclude Include="BCE\Platform.h" />
+    <ClInclude Include="BCE\Shader.h" />
     <ClInclude Include="Menu.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
