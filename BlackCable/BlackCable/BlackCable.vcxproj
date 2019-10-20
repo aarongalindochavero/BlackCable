@@ -126,6 +126,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BCE\Camera.cpp" />
     <ClCompile Include="BCE\GameState.cpp" />
     <ClCompile Include="BCE\GameStateManager.cpp" />
     <ClCompile Include="BCE\Mesh.cpp" />
@@ -135,12 +136,17 @@
     <ClCompile Include="Menu.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BCE\Camera.h" />
     <ClInclude Include="BCE\GameState.h" />
     <ClInclude Include="BCE\GameStateManager.h" />
     <ClInclude Include="BCE\Mesh.h" />
     <ClInclude Include="BCE\Platform.h" />
     <ClInclude Include="BCE\Shader.h" />
     <ClInclude Include="Menu.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Shaders\Menu\shader.frag" />
+    <None Include="Assets\Shaders\Menu\shader.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

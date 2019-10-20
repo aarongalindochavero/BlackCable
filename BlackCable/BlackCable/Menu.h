@@ -3,6 +3,7 @@
 #include "BCE/GameStateManager.h"
 #include "BCE/Mesh.h"
 #include "BCE/Shader.h"
+#include "BCE/Camera.h"
 #include<vector>
 class Menu : public GameState
 {
@@ -17,12 +18,15 @@ private:
 
 	// Fragment Shader
 	const char* fShader = "Assets/Shaders/Menu/shader.frag";
+	Camera camera;
+
 public:
 	Menu();
 	~Menu();
 	void Init(Platform* platform, GameStateManager* manager) override;
 	void Draw() override;
-	bool Input(int keyInput) override;
+	bool Input(std::map<int, int> keys) override;
+	bool MouseInput(int x, int y);
 	void Update() override;
 	void Close() override;
 	void LoadShaders();

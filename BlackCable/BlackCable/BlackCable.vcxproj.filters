@@ -11,6 +11,12 @@
     <Filter Include="Game">
       <UniqueIdentifier>{2317a8ee-ecfa-4357-ba84-532eb69df2b7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de recursos\Shaders">
+      <UniqueIdentifier>{4078b757-b253-4da4-9952-76e4371b61a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de recursos\Shaders\Menu">
+      <UniqueIdentifier>{896ca5f9-ecf7-4eb0-bfbb-4ef63b01cb23}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BCE\GameState.cpp">
@@ -34,6 +40,9 @@
     <ClCompile Include="BCE\Shader.cpp">
       <Filter>BCE</Filter>
     </ClCompile>
+    <ClCompile Include="BCE\Camera.cpp">
+      <Filter>BCE</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BCE\Platform.h">
@@ -54,5 +63,16 @@
     <ClInclude Include="BCE\Shader.h">
       <Filter>BCE</Filter>
     </ClInclude>
+    <ClInclude Include="BCE\Camera.h">
+      <Filter>BCE</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Shaders\Menu\shader.frag">
+      <Filter>Archivos de recursos\Shaders\Menu</Filter>
+    </None>
+    <None Include="Assets\Shaders\Menu\shader.vert">
+      <Filter>Archivos de recursos\Shaders\Menu</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -21,6 +21,8 @@ void Menu::Init(Platform* platform, GameStateManager* manager)
 	this->manager = manager;
 	LoadShaders();
 	LoadModels();
+	camera = Camera(glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f), 0.0f, 0.0f, 5.0f, 0.5f);
+
 }
 
 void Menu::LoadModels()
@@ -54,11 +56,12 @@ void Menu::Draw()
 {
 	platform->RenderClear();
 	
-	GLuint uniformProjection = 0, uniformModel = 0;
+	GLuint uniformProjection = 0, uniformModel = 0, uniformView = 0;;
 	glm::mat4 projection = glm::perspective(45.0f, (float)platform->GetWidth() / platform->GetHeight(), 0.1f, 100.0f);
 	shaderList[0].UseShader();
 	uniformModel = shaderList[0].GetModelLocation();
 	uniformProjection = shaderList[0].GetProjectionLocation();
+	uniformView = shaderList[0].GetViewLocation();
 
 	glm::mat4 model(1);
 
@@ -66,6 +69,7 @@ void Menu::Draw()
 	model = glm::scale(model, glm::vec3(0.4f, 0.4f, 1.0f));
 	glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
 	glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
+	glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(camera.calculateViewMatrix()));
 	meshList[0]->RenderMesh();
 
 
@@ -75,22 +79,25 @@ void Menu::Draw()
 	platform->RenderPresent();
 }
 
-bool Menu::Input(int keyInput)
+bool Menu::MouseInput(int x, int y)
 {
-	std::cout << " Menu Input" << std::endl;
-	if (keyInput == 27)
-	{
-	//	exit(1);
-	}
-	else
-	{
+	return false;
+}
 
-	}
+bool Menu::Input(std::map<int, int> keys)
+{
+
+
+	camera.keyControl(keys, platform->GetDeltaTime());
+	///camera.mouseControl(0, 0);
+
+
 	return false;
 }
 
 void Menu::Update()
 {
+
 }
 
 void Menu::Close()

@@ -3,7 +3,7 @@
 
 GameStateManager::GameStateManager()
 {
-	platform = new Platform("BlackCable");
+	platform = Platform::GetPtr();
 }
 
 GameStateManager::~GameStateManager()
@@ -23,7 +23,7 @@ void GameStateManager::GameLoop()
 			{
 				break;
 			}
-			platform->CheckEvent(state, &GameState::Input);
+			platform->CheckEvent(state, &GameState::Input, &GameState::MouseInput);
 			state->Update();
 			state->Draw();
 

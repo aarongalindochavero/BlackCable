@@ -1,6 +1,10 @@
 #include "Platform.h"
 #include <iostream>
 
+Platform *Platform::ptr;
+GameState * Platform::obj;
+bool (GameState::* Platform::keyboard)(std::map<int, int>);
+std::map<int, int> Platform::keys;
 
 Platform::Platform(std::string name)
 {
@@ -8,6 +12,10 @@ Platform::Platform(std::string name)
 	height = 600;
 	this->name = name;
 	init();
+	for (size_t i = 0; i < 1024; i++)
+	{
+		keys[i] = 0;
+	}
 }
 
 void Platform::init()
@@ -73,9 +81,21 @@ void Platform::RenderPresent()
 	glfwSwapBuffers(mainWindow);
 }
 
-void Platform::CheckEvent(GameState* obj, bool (GameState::* f)(int))
+float Platform::GetDeltaTime() {
+
+	return deltaTime;
+}
+
+void Platform::CheckEvent(GameState* obj, bool (GameState::* keyboard)(std::map<int, int>), bool (GameState::* mouse)(int,int))
 {
+	GLfloat now = glfwGetTime();
+	deltaTime = now - lastTime;
+	lastTime = now;
 	glfwPollEvents();
+	this->obj = obj;
+	this->keyboard = keyboard;
+	glfwSetKeyCallback(mainWindow, HandleKeys);
+	glfwSetCursorPosCallback(mainWindow, handleMouse);
 }
 int Platform::GetWidth()
 {
@@ -85,4 +105,38 @@ int Platform::GetWidth()
 int Platform::GetHeight()
 {
 	return height;
+}
+
+Platform * Platform::GetPtr()
+{
+	if (ptr == nullptr)
+	{
+		ptr = new Platform("GAME");
+	}
+	else
+	{
+		return ptr;
+	}
+}
+
+void  Platform::HandleKeys(GLFWwindow* window, int key, int code, int action, int mode)
+{
+	if (key >= 0 && key < 1024)
+	{
+		if (action == GLFW_PRESS)
+		{
+			Platform::keys[key] = true;
+		}
+		else if (action == GLFW_RELEASE)
+		{
+			Platform::keys[key] = false;
+		}
+	}
+	(Platform::obj->*Platform::keyboard)(keys);
+}
+
+void Platform::handleMouse(GLFWwindow* window, double xPos, double yPos)
+{
+
+	
 }
