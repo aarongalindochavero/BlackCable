@@ -3,13 +3,14 @@
 
 Platform *Platform::ptr;
 GameState * Platform::obj;
-bool (GameState::* Platform::keyboard)(std::map<int, int>);
-std::map<int, int> Platform::keys;
+bool (GameState::* Platform::keyboard)(std::map<int, bool>);
+bool (GameState::* Platform::mouse)(int, int);
+std::map<int, bool> Platform::keys;
 
-Platform::Platform(std::string name)
+Platform::Platform(std::string name, int wWindow, int hWindow)
 {
-	width = 800;
-	height = 600;
+	width = wWindow;
+	height = hWindow;
 	this->name = name;
 	init();
 	for (size_t i = 0; i < 1024; i++)
@@ -81,12 +82,12 @@ void Platform::RenderPresent()
 	glfwSwapBuffers(mainWindow);
 }
 
-float Platform::GetDeltaTime() {
-
+float Platform::GetDeltaTime()
+{
 	return deltaTime;
 }
 
-void Platform::CheckEvent(GameState* obj, bool (GameState::* keyboard)(std::map<int, int>), bool (GameState::* mouse)(int,int))
+void Platform::CheckEvent(GameState* obj, bool (GameState::* keyboard)(std::map<int, bool>), bool (GameState::* mouse)(int,int))
 {
 	GLfloat now = glfwGetTime();
 	deltaTime = now - lastTime;
@@ -94,8 +95,9 @@ void Platform::CheckEvent(GameState* obj, bool (GameState::* keyboard)(std::map<
 	glfwPollEvents();
 	this->obj = obj;
 	this->keyboard = keyboard;
+	this->mouse = mouse;
 	glfwSetKeyCallback(mainWindow, HandleKeys);
-	glfwSetCursorPosCallback(mainWindow, handleMouse);
+	glfwSetCursorPosCallback(mainWindow, HandleMouse);
 }
 int Platform::GetWidth()
 {
@@ -111,7 +113,7 @@ Platform * Platform::GetPtr()
 {
 	if (ptr == nullptr)
 	{
-		ptr = new Platform("GAME");
+		ptr = new Platform("GAME",640,480);
 	}
 	else
 	{
@@ -135,8 +137,8 @@ void  Platform::HandleKeys(GLFWwindow* window, int key, int code, int action, in
 	(Platform::obj->*Platform::keyboard)(keys);
 }
 
-void Platform::handleMouse(GLFWwindow* window, double xPos, double yPos)
+void Platform::HandleMouse(GLFWwindow* window, double xPos, double yPos)
 {
-
+	(Platform::obj->*Platform::mouse)(xPos, yPos);
 	
 }

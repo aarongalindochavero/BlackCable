@@ -1,6 +1,8 @@
 #include "GameStateManager.h"
 #include <iostream>
 
+GameStateManager* GameStateManager::ptr;
+
 GameStateManager::GameStateManager()
 {
 	platform = Platform::GetPtr();
@@ -9,7 +11,17 @@ GameStateManager::GameStateManager()
 GameStateManager::~GameStateManager()
 {
 }
-
+GameStateManager* GameStateManager::getPtr()
+{
+	if (ptr == nullptr)
+	{
+		ptr = new GameStateManager();
+	}
+	else
+	{
+		return ptr;
+	}
+}
 void GameStateManager::GameLoop()
 {
 	while (true)
@@ -38,7 +50,7 @@ void GameStateManager::GameLoop()
 
 void GameStateManager::SetState(GameState* state)
 {
-	state->Init(platform, this);
+	state->Init();
 	states.push(state);
 }
 

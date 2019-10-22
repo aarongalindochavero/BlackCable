@@ -2,10 +2,9 @@
 #include "Menu.h"
 int main(int argc, char* argv[])
 {
-	GameStateManager* manager = new GameStateManager();
-	manager->SetState(new Menu());
-	manager->GameLoop();
-	delete manager;
+	auto gameStateManager = GameStateManager::getPtr();
+	gameStateManager->SetState(new Menu());
+	gameStateManager->GameLoop();
 	return 0;
 }
 

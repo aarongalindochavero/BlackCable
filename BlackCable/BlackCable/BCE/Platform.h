@@ -19,7 +19,7 @@ private:
 	float lastTime{ 0 };
 private:
 	void init();	
-	Platform(std::string name);
+	Platform(std::string name,int wWindow, int hWindow);
 	~Platform();
 	static Platform *ptr;
 public:
@@ -27,15 +27,16 @@ public:
 
 	void RenderClear();
 	void RenderPresent();
-	void CheckEvent(GameState* obj, bool (GameState::* keyboard)(std::map<int, int>), bool (GameState::* mouse)(int, int));
+	void CheckEvent(GameState* obj, bool (GameState::* keyboard)(std::map<int, bool>), bool (GameState::* mouse)(int, int));
 	int GetWidth();
 	int GetHeight();
 	float GetDeltaTime();
 public:
 	static GameState * obj;
-	static bool (GameState::* keyboard)(std::map<int, int>);
-	static std::map<int, int> keys;
+	static bool (GameState::* keyboard)(std::map<int, bool>);
+	static bool (GameState::* mouse)(int, int);
+	static std::map<int, bool> keys;
 private:
 	static void HandleKeys(GLFWwindow* window, int key, int code, int action, int mode);
-	static void handleMouse(GLFWwindow* window, double xPos, double yPos);
+	static void HandleMouse(GLFWwindow* window, double xPos, double yPos);
 };

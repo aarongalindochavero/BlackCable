@@ -23,9 +23,9 @@ private:
 public:
 	Menu();
 	~Menu();
-	void Init(Platform* platform, GameStateManager* manager) override;
+	void Init() override;
 	void Draw() override;
-	bool Input(std::map<int, int> keys) override;
+	bool Input(std::map<int, bool> keys) override;
 	bool MouseInput(int x, int y);
 	void Update() override;
 	void Close() override;

@@ -14,11 +14,11 @@ Menu::~Menu()
 {
 }
 
-void Menu::Init(Platform* platform, GameStateManager* manager)
+void Menu::Init()
 {
 	std::cout << " Menu Init" << std::endl;
-	this->platform = platform;
-	this->manager = manager;
+	this->platform = Platform::GetPtr();
+	this->manager = GameStateManager::getPtr();
 	LoadShaders();
 	LoadModels();
 	camera = Camera(glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f), 0.0f, 0.0f, 5.0f, 0.5f);
@@ -84,7 +84,7 @@ bool Menu::MouseInput(int x, int y)
 	return false;
 }
 
-bool Menu::Input(std::map<int, int> keys)
+bool Menu::Input(std::map<int, bool> keys)
 {
 
 
