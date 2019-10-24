@@ -19,7 +19,7 @@ private:
 	// Fragment Shader
 	const char* fShader = "Assets/Shaders/Menu/shader.frag";
 	Camera camera;
-
+	float angle{0};
 public:
 	Menu();
 	~Menu();
