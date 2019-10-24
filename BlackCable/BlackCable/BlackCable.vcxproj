@@ -129,6 +129,7 @@
     <ClCompile Include="BCE\Camera.cpp" />
     <ClCompile Include="BCE\GameState.cpp" />
     <ClCompile Include="BCE\GameStateManager.cpp" />
+    <ClCompile Include="BCE\Light.cpp" />
     <ClCompile Include="BCE\Mesh.cpp" />
     <ClCompile Include="BCE\Platform.cpp" />
     <ClCompile Include="BCE\Shader.cpp" />
@@ -139,6 +140,7 @@
     <ClInclude Include="BCE\Camera.h" />
     <ClInclude Include="BCE\GameState.h" />
     <ClInclude Include="BCE\GameStateManager.h" />
+    <ClInclude Include="BCE\Light.h" />
     <ClInclude Include="BCE\Mesh.h" />
     <ClInclude Include="BCE\Platform.h" />
     <ClInclude Include="BCE\Shader.h" />

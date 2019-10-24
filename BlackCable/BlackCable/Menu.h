@@ -4,6 +4,7 @@
 #include "BCE/Mesh.h"
 #include "BCE/Shader.h"
 #include "BCE/Camera.h"
+#include "BCE/Light.h"
 #include<vector>
 class Menu : public GameState
 {
@@ -19,7 +20,8 @@ private:
 	// Fragment Shader
 	const char* fShader = "Assets/Shaders/Menu/shader.frag";
 	Camera camera;
-
+	float angle{ 0 };
+	Light mainLight;
 public:
 	Menu();
 	~Menu();
@@ -31,4 +33,5 @@ public:
 	void Close() override;
 	void LoadShaders();
 	void LoadModels();
+
 };

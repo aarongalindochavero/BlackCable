@@ -1,4 +1,5 @@
 #include "Camera.h"
+#include <iostream>
 
 Camera::Camera() {}
 
@@ -23,6 +24,7 @@ void Camera::keyControl(std::map<int,bool> keys, GLfloat deltaTime)
 	if (keys[GLFW_KEY_W])
 	{
 		position += front * velocity;
+
 	}
 
 	if (keys[GLFW_KEY_S])
@@ -39,6 +41,7 @@ void Camera::keyControl(std::map<int,bool> keys, GLfloat deltaTime)
 	{
 		position += right * velocity;
 	}
+	std::cout<<position.x<<"  "<<position.y<<"  " << position.z <<std::endl;
 }
 
 void Camera::mouseControl(GLfloat xChange, GLfloat yChange)
