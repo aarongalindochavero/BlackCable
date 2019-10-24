@@ -50,8 +50,7 @@ void Menu::Init()
 	LoadShaders();
 	LoadModels();
 	camera = Camera(glm::vec3(-14.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f), 0.0f, 0.0f, 55.0f, 83.5f);
-	mainLight = Light(1.0f, 1.0f, 1.0f, 0.5f,
-		0.0f, 0.0f, -1.0f, 0.3f);
+	mainLight = Light(0.0f, 1.0f, 0.0f, 0.5f, 0.0f, -10.0f, 0.0f, 0.5f);
 }
 
 
@@ -69,19 +68,83 @@ void Menu::LoadModels()
 
 	};
 
+	//GLfloat vertices[] = {
+	//	// front
+	//	-1.0, -1.0,  1.0, 0.0f, 0.0f,		0.4f, 0.0f, 0.8f,
+	//	 1.0, -1.0,  1.0,0.0f, 0.0f,		0.0f, 0.0f, 0.0f,
+	//	 1.0,  1.0,  1.0,0.0f, 0.0f,		0.0f, 0.0f, 0.0f,
+	//	-1.0,  1.0,  1.0,0.0f, 0.0f,		0.0f, 0.0f, 0.0f,
+	//	// back
+	//	-1.0, -1.0, -1.0,0.0f, 0.0f,		0.0f, 0.0f, 0.0f,
+	//	 1.0, -1.0, -1.0,0.0f, 0.0f,		0.0f, 0.0f, 0.0f,
+	//	 1.0,  1.0, -1.0,0.0f, 0.0f,		0.0f, 0.0f, 0.0f,
+	//	-1.0,  1.0, -1.0,0.0f, 0.0f,		0.7f, -0.7f, 0.0f,
+	//};
+	//calcAverageNormals(indices, 18, vertices, 64, 8, 5);
 	GLfloat vertices[] = {
-		// front
-		-1.0, -1.0,  1.0, 0.0f, 0.0f,		0.0f, 0.0f, 0.0f,
-		 1.0, -1.0,  1.0,0.0f, 0.0f,		0.0f, 0.0f, 0.0f,
-		 1.0,  1.0,  1.0,0.0f, 0.0f,		0.0f, 0.0f, 0.0f,
-		-1.0,  1.0,  1.0,0.0f, 0.0f,		0.0f, 0.0f, 0.0f,
-		// back
-		-1.0, -1.0, -1.0,0.0f, 0.0f,		0.0f, 0.0f, 0.0f,
-		 1.0, -1.0, -1.0,0.0f, 0.0f,		0.0f, 0.0f, 0.0f,
-		 1.0,  1.0, -1.0,0.0f, 0.0f,		0.0f, 0.0f, 0.0f,
-		-1.0,  1.0, -1.0,0.0f, 0.0f,		0.0f, 0.0f, 0.0f,
+	-1.0,-1.0,	1.0,
+		0.00,
+		0.00,
+		0.447213590,
+		0.00,
+		0.894427180,
+		1.0,
+		-1.0,
+		1.0,
+		0.00,
+		0.00,
+		0.00,
+		0.00,
+		1.0,
+		1.0,
+		1.0,
+		1.0,
+		0.00,
+		0.00,
+		0.00,
+		0.447213590,
+		0.894427180,
+		-1.0,
+		1.0,
+		1.0,
+		0.00,
+		0.00,
+		0.894427180,
+		0.00,
+		0.447213590,
+		-1.0,
+		-1.0,
+		-1.0,
+		0.00,
+		0.00,
+		1.0,
+		0.00,
+		0.00,
+		1.0,
+		-1.0,
+		-1.0,
+		0.00,
+		0.00,
+		0,
+		0,
+		0,
+		1.0,
+		1.0,
+		-1.0,
+		0.00,
+		0.00,
+		0,
+		0,
+		0,
+		-1.0,
+		1.0,
+		-1.0,
+		0.00,
+		0.00,
+		0.707106769,
+		-0.707106769,
+		0.00
 	};
-	calcAverageNormals(indices, 18, vertices, 64, 8, 5);
 	Mesh *obj1 = new Mesh();
 	obj1->CreateMesh(vertices, indices, 64, 18);
 	meshList.push_back(obj1);
@@ -123,7 +186,7 @@ void Menu::Draw()
 	//model = glm::translate(model, glm::vec3(0.0f, 0.0f, -2.5f));
 	//model = glm::scale(model, glm::vec3(0.4f, 0.4f, 1.0f));
 	angle += 0.001;
-	model = glm::rotate(model,angle,	glm::vec3(1.0f, 1.0f, 0.0f));
+	model = glm::rotate(model,angle, glm::vec3(0.0f, 1.0f, 0.0f));
 	glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
 	glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
 	glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(camera.calculateViewMatrix()));
