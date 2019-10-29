@@ -4,22 +4,15 @@
 #include "BCE/Mesh.h"
 #include "BCE/Shader.h"
 #include "BCE/Camera.h"
+#include "BCE/CubeModel.h"
 #include<vector>
 class Menu : public GameState
 {
 private:
 	Platform* platform;
 	GameStateManager* manager;
-
-	std::vector<Mesh*> meshList;
-	std::vector<Shader> shaderList;
-
-	const char* vShader = "Assets/Shaders/Menu/shader.vert";
-
-	// Fragment Shader
-	const char* fShader = "Assets/Shaders/Menu/shader.frag";
 	Camera camera;
-	float angle{0};
+	CubeModel *cube;
 public:
 	Menu();
 	~Menu();
@@ -29,6 +22,5 @@ public:
 	bool MouseInput(int x, int y);
 	void Update() override;
 	void Close() override;
-	void LoadShaders();
-	void LoadModels();
+
 };
