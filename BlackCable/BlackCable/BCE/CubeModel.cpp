@@ -60,7 +60,7 @@ void CubeModel::Draw(glm::mat4 *projection, Camera *camera)
 	//model = glm::translate(model, glm::vec3(0.0f, 0.0f, -2.5f));
 	//model = glm::scale(model, glm::vec3(0.4f, 0.4f, 1.0f));
 	model = glm::rotate(model, angle, glm::vec3(1.0f, 1.0f, 0.0f));
-	angle += 0.01f;
+	angle += 0.001f;
 	glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
 	glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(*projection));
 	glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(camera->calculateViewMatrix()));
