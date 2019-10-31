@@ -14,7 +14,7 @@ uniform mat4 view;
 vec3 ADSLightModel( in vec3 myNormal, in vec3 myPosition )
 {
 	const vec3 myLightPosition = vec3( 0.0 , 0.5, 0.0 );
-	const vec3 myLightAmbient = vec3( 0.2, 0.2, 0.2 );
+	const vec3 myLightAmbient = vec3( 1.0, 1.0, 1.0 );
 	const vec3 myLightDiffuse = vec3( 1.0 , 1.0 , 1.0 );
 	const vec3 myLightSpecular = vec3( 1.0 , 1.0 , 1.0 );
 	const vec3 myMaterialAmbient = vec3( 1.0 , 0.5, 0.0 );

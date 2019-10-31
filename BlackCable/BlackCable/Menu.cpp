@@ -30,7 +30,7 @@ void Menu::Draw()
 	platform->RenderClear();
 	glm::mat4 projection = glm::perspective(45.0f, (float)platform->GetWidth() / platform->GetHeight(), 0.1f, 100.0f);
 	glm::mat4 model(1);
-	cube->Draw(&projection, &camera);
+	cube->Draw(projection, camera);
 
 
 	platform->RenderPresent();
@@ -49,7 +49,6 @@ bool Menu::Input(std::map<int, bool> keys)
 	///camera.mouseControl(0, 0);
 
 
-	return false;
 }
 
 void Menu::Update()
@@ -60,4 +59,3 @@ void Menu::Update()
 void Menu::Close()
 {
 	std::cout << " Close Init" << std::endl;
-}

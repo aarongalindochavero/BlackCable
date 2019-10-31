@@ -1,7 +1,6 @@
 #include "GameStateManager.h"
 #include <iostream>
 
-GameStateManager* GameStateManager::ptr;
 
 GameStateManager::GameStateManager()
 {
@@ -13,9 +12,9 @@ GameStateManager::~GameStateManager()
 }
 GameStateManager* GameStateManager::getPtr()
 {
-	if (ptr == nullptr)
+	if (ptr = nullptr)
 	{
-		ptr = new GameStateManager();
+		ptr =  GameStateManager();
 	}
 	else
 	{

@@ -15,7 +15,7 @@ private:
 	static GameStateManager* ptr;
 public:
 	static GameStateManager* getPtr();
-	void GameLoop();
+	void GameLoop;
 	void SetState(GameState* state);
 	void RealaseState();
 };

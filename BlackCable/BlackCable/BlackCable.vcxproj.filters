@@ -43,10 +43,10 @@
     <ClCompile Include="BCE\Camera.cpp">
       <Filter>BCE</Filter>
     </ClCompile>
-    <ClCompile Include="BCE\Texture.cpp">
+    <ClCompile Include="BCE\CubeModel.cpp">
       <Filter>BCE</Filter>
     </ClCompile>
-    <ClCompile Include="BCE\CubeModel.cpp">
+    <ClCompile Include="BCE\Texture.cpp">
       <Filter>BCE</Filter>
     </ClCompile>
   </ItemGroup>
@@ -72,13 +72,10 @@
     <ClInclude Include="BCE\Camera.h">
       <Filter>BCE</Filter>
     </ClInclude>
-    <ClInclude Include="BCE\Texture.h">
-      <Filter>BCE</Filter>
-    </ClInclude>
-    <ClInclude Include="BCE\Model.h">
-      <Filter>BCE</Filter>
-    </ClInclude>
     <ClInclude Include="BCE\CubeModel.h">
+      <Filter>BCE</Filter>
+    </ClInclude>
+    <ClInclude Include="BCE\Texture.h">
       <Filter>BCE</Filter>
     </ClInclude>
   </ItemGroup>
