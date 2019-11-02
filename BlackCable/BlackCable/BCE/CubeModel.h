@@ -6,6 +6,9 @@
 #include<vector>
 #include"Model.h"
 #include"Texture.h"
+#include "Material.h"
+#include "Light.h"
+
 class CubeModel : Model
 {
 public:
@@ -16,9 +19,11 @@ public:
 private:
 	void LoadShaders() override;
 	void LoadMesh() override;
-	const char* vShader = "Assets/Shaders/Menu/shader.vert";
-	const char* fShader = "Assets/Shaders/Menu/shader.frag";
+	const char* vShader = "Assets/Shaders/Menu/phong-shader.vert";
+	const char* fShader = "Assets/Shaders/Menu/phong-shader.frag";
 	float angle{ 0 };
 	Texture *texture;
+	Material *material;
+	Light *light;//temp
 };
 

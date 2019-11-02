@@ -47,24 +47,46 @@ void CubeModel::Init()
 	LoadShaders();
 	texture = new Texture("Assets/Textures/brick.png");
 	texture->LoadTexture();
+
+	material = new Material(1,1);
+
+	light = new Light(1.0f, 1.0f, 1.0f, 0.1f,0.0f, 0.0f, -1.0f, 0.3f);
 }
 
 void CubeModel::Draw(glm::mat4 *projection, Camera *camera)
 {
 	GLuint uniformProjection = 0, uniformModel = 0, uniformView = 0;
+
+	GLuint  uniformEyePosition = 0,
+		uniformAmbientIntensity = 0, uniformAmbientColour = 0, uniformDirection = 0, uniformDiffuseIntensity = 0,
+		uniformSpecularIntensity = 0, uniformShininess = 0;
 	shaderList[0].UseShader();
 	uniformModel = shaderList[0].GetModelLocation();
 	uniformProjection = shaderList[0].GetProjectionLocation();
 	uniformView = shaderList[0].GetViewLocation();
+
+	uniformAmbientColour = shaderList[0].GetAmbientColourLocation();
+	uniformAmbientIntensity = shaderList[0].GetAmbientIntensityLocation();
+	uniformDirection = shaderList[0].GetDirectionLocation();
+	uniformDiffuseIntensity = shaderList[0].GetDiffuseIntensityLocation();
+	uniformEyePosition = shaderList[0].GetEyePositionLocation();
+	uniformSpecularIntensity = shaderList[0].GetSpecularIntensityLocation();
+	uniformShininess = shaderList[0].GetShininessLocation();
+
 	glm::mat4 model(1);
 	//model = glm::translate(model, glm::vec3(0.0f, 0.0f, -2.5f));
 	//model = glm::scale(model, glm::vec3(0.4f, 0.4f, 1.0f));
 	model = glm::rotate(model, angle, glm::vec3(1.0f, 1.0f, 0.0f));
-	angle += 0.001f;
+	angle += 0.01f;
 	glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
 	glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(*projection));
 	glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(camera->calculateViewMatrix()));
+	glUniform3f(uniformEyePosition, camera->getCameraPosition().x, camera->getCameraPosition().y, camera->getCameraPosition().z);
+
+	light->UseLight(uniformAmbientIntensity, uniformAmbientColour,
+					uniformDiffuseIntensity, uniformDirection);
 	texture->UseTexture();
+	material->UseMaterial(uniformSpecularIntensity, uniformShininess);
 	meshList[0]->RenderMesh();
 	glUseProgram(0);
 }
