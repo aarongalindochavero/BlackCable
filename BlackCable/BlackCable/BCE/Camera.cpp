@@ -41,6 +41,11 @@ void Camera::keyControl(std::map<int,bool> keys, GLfloat deltaTime)
 	}
 }
 
+glm::vec3 Camera::getCameraPosition()
+{
+	return position;
+}
+
 void Camera::mouseControl(GLfloat xChange, GLfloat yChange)
 {
 	xChange *= turnSpeed;

@@ -49,6 +49,12 @@
     <ClCompile Include="BCE\CubeModel.cpp">
       <Filter>BCE</Filter>
     </ClCompile>
+    <ClCompile Include="BCE\Material.cpp">
+      <Filter>BCE</Filter>
+    </ClCompile>
+    <ClCompile Include="BCE\Light.cpp">
+      <Filter>BCE</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BCE\Platform.h">
@@ -81,12 +87,24 @@
     <ClInclude Include="BCE\CubeModel.h">
       <Filter>BCE</Filter>
     </ClInclude>
+    <ClInclude Include="BCE\Material.h">
+      <Filter>BCE</Filter>
+    </ClInclude>
+    <ClInclude Include="BCE\Light.h">
+      <Filter>BCE</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Shaders\Menu\shader.frag">
+    <None Include="Assets\Shaders\Menu\gouraud-shader.frag">
       <Filter>Archivos de recursos\Shaders\Menu</Filter>
     </None>
-    <None Include="Assets\Shaders\Menu\shader.vert">
+    <None Include="Assets\Shaders\Menu\gouraud-shader.vert">
+      <Filter>Archivos de recursos\Shaders\Menu</Filter>
+    </None>
+    <None Include="Assets\Shaders\Menu\phong-shader.frag">
+      <Filter>Archivos de recursos\Shaders\Menu</Filter>
+    </None>
+    <None Include="Assets\Shaders\Menu\phong-shader.vert">
       <Filter>Archivos de recursos\Shaders\Menu</Filter>
     </None>
   </ItemGroup>
