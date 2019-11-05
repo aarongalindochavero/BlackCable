@@ -29,26 +29,31 @@ uniform vec3 eyePosition;
 
 void main()
 {
-	vec4 ambientColour = vec4(directionalLight.colour, 1.0f) * directionalLight.ambientIntensity;
-
-	float diffuseFactor = max(dot(normalize(Normal), normalize(directionalLight.direction)), 0.0f);
-	vec4 diffuseColour = vec4(directionalLight.colour, 1.0f) * directionalLight.diffuseIntensity * diffuseFactor;
-	
-	vec4 specularColour = vec4(0, 0, 0, 0);
-	
-	if(diffuseFactor > 0.0f)
+	const vec3 myLightPosition = vec3( 1. , 0.5, 0. );
+	const vec3 myLightAmbient = vec3( 0.2, 0.2, 0.2 );
+	const vec3 myLightDiffuse = vec3( 1. , 1. , 1);
+	const vec3 myLightSpecular = vec3( 1. , 1. , 1. );
+	const vec3 myMaterialAmbient = vec3( 1. , 0.5, 0. );
+	const vec3 myMaterialDiffuse = vec3( 1. , 0.5, 0. );
+	const vec3 myMaterialSpecular = vec3( 0.6, 0.6, 0.6 );
+	const float myMaterialShininess = 80.;
+	//normal, light, view, and light reflection vectors
+	vec3 norm = normalize( Normal );
+	vec3 lightv = normalize( myLightPosition - eyePosition);
+	vec3 viewv = normalize( vec3(0.,0.,0.) - eyePosition );
+	vec3 refl = reflect( vec3(0.,0.,0.) - lightv, norm );
+	//ambient light computation
+	vec3 ambient = myMaterialAmbient*myLightAmbient;
+	//diffuse light computation
+	vec3 diffuse = max(0.0, dot(lightv, norm)) * myMaterialDiffuse
+	 *myLightDiffuse;
+	//specular light computation
+	vec3 specular = vec3( 0.0, 0.0, 0.0 );
+	if( dot(lightv, viewv) > 0.0)
 	{
-		vec3 fragToEye = normalize(eyePosition - FragPos);
-		vec3 reflectedVertex = normalize(reflect(directionalLight.direction, normalize(Normal)));
-		
-		float specularFactor = dot(fragToEye, reflectedVertex);
-		if(specularFactor > 0.0f)
-		{
-			specularFactor = pow(specularFactor, material.shininess);
-			specularColour = vec4(directionalLight.colour * material.specularIntensity * specularFactor, 1.0f);
-		}
+	 specular = pow(max(0.0, dot(viewv,refl)),
+	 myMaterialShininess)*myMaterialSpecular*
+	myLightSpecular;
 	}
-	
-	colour = texture(tex, TexCoord)* (ambientColour + diffuseColour + specularColour);
-
+	colour =  texture(tex, TexCoord)*vec4(ambient + diffuse + specular,1.0);
 }
