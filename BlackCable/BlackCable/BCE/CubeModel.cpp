@@ -50,7 +50,7 @@ void CubeModel::Init()
 
 	material = new Material(1,1);
 
-	light = new Light(1.0f, 1.0f, 1.0f, 0.1f,0.0f, 0.0f, -1.0f, 0.3f);
+	light = new Light();
 }
 
 void CubeModel::Draw(glm::mat4 *projection, Camera *camera)
@@ -59,19 +59,24 @@ void CubeModel::Draw(glm::mat4 *projection, Camera *camera)
 
 	GLuint  uniformEyePosition = 0,
 		uniformAmbientIntensity = 0, uniformAmbientColour = 0, uniformDirection = 0, uniformDiffuseIntensity = 0,
-		uniformSpecularIntensity = 0, uniformShininess = 0;
+		uniformSpecularIntensity = 0, uniformShininess = 0,
+		myMaterialAmbient = 0, myLightAmbient = 0;
+
 	shaderList[0].UseShader();
 	uniformModel = shaderList[0].GetModelLocation();
 	uniformProjection = shaderList[0].GetProjectionLocation();
 	uniformView = shaderList[0].GetViewLocation();
 
-	uniformAmbientColour = shaderList[0].GetAmbientColourLocation();
-	uniformAmbientIntensity = shaderList[0].GetAmbientIntensityLocation();
-	uniformDirection = shaderList[0].GetDirectionLocation();
-	uniformDiffuseIntensity = shaderList[0].GetDiffuseIntensityLocation();
-	uniformEyePosition = shaderList[0].GetEyePositionLocation();
-	uniformSpecularIntensity = shaderList[0].GetSpecularIntensityLocation();
-	uniformShininess = shaderList[0].GetShininessLocation();
+	//uniformAmbientColour = shaderList[0].GetAmbientColourLocation();
+	//uniformAmbientIntensity = shaderList[0].GetAmbientIntensityLocation();
+	//uniformDirection = shaderList[0].GetDirectionLocation();
+	//uniformDiffuseIntensity = shaderList[0].GetDiffuseIntensityLocation();
+	//uniformEyePosition = shaderList[0].GetEyePositionLocation();
+	//uniformSpecularIntensity = shaderList[0].GetSpecularIntensityLocation();
+	//uniformShininess = shaderList[0].GetShininessLocation();
+
+	myMaterialAmbient = shaderList[0].GetMyMaterialAmbient();
+	myLightAmbient = shaderList[0].GetMyLightAmbient();
 
 	glm::mat4 model(1);
 	//model = glm::translate(model, glm::vec3(0.0f, 0.0f, -2.5f));
@@ -83,10 +88,9 @@ void CubeModel::Draw(glm::mat4 *projection, Camera *camera)
 	glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(camera->calculateViewMatrix()));
 	glUniform3f(uniformEyePosition, camera->getCameraPosition().x, camera->getCameraPosition().y, camera->getCameraPosition().z);
 
-	light->UseLight(uniformAmbientIntensity, uniformAmbientColour,
-					uniformDiffuseIntensity, uniformDirection);
+	light->UseLight(myMaterialAmbient, myLightAmbient);
 	texture->UseTexture();
-	material->UseMaterial(uniformSpecularIntensity, uniformShininess);
+	//material->UseMaterial(uniformSpecularIntensity, uniformShininess);
 	meshList[0]->RenderMesh();
 	glUseProgram(0);
 }
