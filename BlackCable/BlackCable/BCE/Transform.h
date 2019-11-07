@@ -7,12 +7,13 @@ class Transform
 {
 public:
 	void SetTranslation(float x, float y, float z);
-	void SetRotationVector(float angle, float x, float y, float z);
+	void SetRotation(float x, float y, float z);
 	void SetScale(float x, float y, float z);
 	glm::mat4 GetTransform();
+	Transform();
 private:
 	glm::vec3 _translation;
 	glm::vec3 _rotation;
 	glm::vec3 _scale;
-	float _angle;
+	glm::mat4 _model;
 };

@@ -1,5 +1,10 @@
 #include "Transform.h"
 
+Transform::Transform() : _model(1)
+{
+	
+}
+
 void Transform::SetTranslation(float x, float y, float z)
 {
 	_translation.x = x;
@@ -7,12 +12,11 @@ void Transform::SetTranslation(float x, float y, float z)
 	_translation.z = z;
 }
 
-void Transform::SetRotationVector(float angle, float x, float y, float z)
+void Transform::SetRotation(float x, float y, float z)
 {
 	_rotation.x = x;
 	_rotation.y = y;
 	_rotation.z = z;
-	_angle = angle;
 }
 
 void Transform::SetScale(float x, float y, float z)
@@ -24,9 +28,11 @@ void Transform::SetScale(float x, float y, float z)
 
 glm::mat4 Transform::GetTransform()
 {
-	glm::mat4 _model(1);
+	_model = glm::mat4(1.0);
 	_model = glm::translate(_model, _translation);
 	_model = glm::scale(_model, _scale);
-	_model = glm::rotate(_model, _angle, _rotation);
+	_model = glm::rotate(_model, _rotation.x, glm::vec3(1,0,0));
+	_model = glm::rotate(_model, _rotation.y, glm::vec3(0,1,0));
+	_model = glm::rotate(_model, _rotation.z, glm::vec3(0,0,1));
 	return _model;
 }

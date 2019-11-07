@@ -29,7 +29,7 @@ void PlaneModel::Draw()
 	glm::mat4 model(1);
 	transform.SetTranslation(0.0f, 0.0f, -2.5f);
 	transform.SetScale(4.4f, 4.4f, 4.0f);
-	transform.SetRotationVector(angle, 0, 1.0f, 0.0f);
+	transform.SetRotation(0, 1.0f, 0.0f);
 	glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(transform.GetTransform()));
 	texture->UseTexture();
 	meshList[0]->RenderMesh();
