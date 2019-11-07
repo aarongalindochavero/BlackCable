@@ -20,19 +20,22 @@ void Menu::Init()
 	std::cout << " Menu Init" << std::endl;
 	this->platform = Platform::GetPtr();
 	this->manager = GameStateManager::getPtr();
+	shaderManager = ShaderManager::getPtr();
 	camera = Camera(glm::vec3(-12.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f), 0.0f, 0.0f, 55.0f, 0.5f);
+	shaderManager->initShader(&camera);
 	cube = new CubeModel();
 	cube->Init();
+	plane = new PlaneModel();
+	plane->Init();
+
 }
 
 void Menu::Draw()
 {
 	platform->RenderClear();
-	glm::mat4 projection = glm::perspective(45.0f, (float)platform->GetWidth() / platform->GetHeight(), 0.1f, 100.0f);
-	glm::mat4 model(1);
-	cube->Draw(&projection, &camera);
-
-
+	shaderManager->draw();
+	cube->Draw();
+	plane->Draw();
 	platform->RenderPresent();
 }
 
@@ -43,12 +46,8 @@ bool Menu::MouseInput(int x, int y)
 
 bool Menu::Input(std::map<int, bool> keys)
 {
-
-
 	camera.keyControl(keys, platform->GetDeltaTime());
 	///camera.mouseControl(0, 0);
-
-
 	return false;
 }
 

@@ -55,6 +55,18 @@
     <ClCompile Include="BCE\Light.cpp">
       <Filter>BCE</Filter>
     </ClCompile>
+    <ClCompile Include="BCE\DirectionalLight.cpp">
+      <Filter>BCE</Filter>
+    </ClCompile>
+    <ClCompile Include="BCE\PointLight.cpp">
+      <Filter>BCE</Filter>
+    </ClCompile>
+    <ClCompile Include="BCE\PlaneModel.cpp">
+      <Filter>BCE</Filter>
+    </ClCompile>
+    <ClCompile Include="BCE\ShaderManager.cpp">
+      <Filter>BCE</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BCE\Platform.h">
@@ -91,6 +103,18 @@
       <Filter>BCE</Filter>
     </ClInclude>
     <ClInclude Include="BCE\Light.h">
+      <Filter>BCE</Filter>
+    </ClInclude>
+    <ClInclude Include="BCE\DirectionalLight.h">
+      <Filter>BCE</Filter>
+    </ClInclude>
+    <ClInclude Include="BCE\PointLight.h">
+      <Filter>BCE</Filter>
+    </ClInclude>
+    <ClInclude Include="BCE\PlaneModel.h">
+      <Filter>BCE</Filter>
+    </ClInclude>
+    <ClInclude Include="BCE\ShaderManager.h">
       <Filter>BCE</Filter>
     </ClInclude>
   </ItemGroup>

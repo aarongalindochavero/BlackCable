@@ -5,14 +5,18 @@
 #include "BCE/Shader.h"
 #include "BCE/Camera.h"
 #include "BCE/CubeModel.h"
+#include "BCE/PlaneModel.h"
+#include "BCE/ShaderManager.h"
 #include<vector>
 class Menu : public GameState
 {
 private:
 	Platform* platform;
 	GameStateManager* manager;
+	ShaderManager* shaderManager;
 	Camera camera;
 	CubeModel *cube;
+	PlaneModel* plane;
 public:
 	Menu();
 	~Menu();
