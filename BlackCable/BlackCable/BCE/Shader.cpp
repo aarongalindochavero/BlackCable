@@ -89,7 +89,6 @@ void Shader::CompileShader(const char* vertexCode, const char* fragmentCode)
 	//uniformSpecularIntensity = glGetUniformLocation(shaderID, "material.specularIntensity");
 	//uniformShininess = glGetUniformLocation(shaderID, "material.shininess");
 	uniformEyePosition = glGetUniformLocation(shaderID, "eyePosition");
-
 	myLightAmbient = glGetUniformLocation(shaderID, "light.myLightAmbient");
 	myMaterialAmbient = glGetUniformLocation(shaderID, "light.myMaterialAmbient");
 }

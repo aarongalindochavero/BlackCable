@@ -9,11 +9,11 @@
 #include "Material.h"
 #include "Light.h"
 
-class CubeModel : Model
+class PlaneModel : Model
 {
 public:
-	CubeModel();
-	~CubeModel();
+	PlaneModel();
+	~PlaneModel();
 	void Init() override;
 	void Draw() override;
 private:

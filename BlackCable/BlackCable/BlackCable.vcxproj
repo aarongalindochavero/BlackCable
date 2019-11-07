@@ -128,13 +128,17 @@
   <ItemGroup>
     <ClCompile Include="BCE\Camera.cpp" />
     <ClCompile Include="BCE\CubeModel.cpp" />
+    <ClCompile Include="BCE\DirectionalLight.cpp" />
     <ClCompile Include="BCE\GameState.cpp" />
     <ClCompile Include="BCE\GameStateManager.cpp" />
     <ClCompile Include="BCE\Light.cpp" />
     <ClCompile Include="BCE\Material.cpp" />
     <ClCompile Include="BCE\Mesh.cpp" />
+    <ClCompile Include="BCE\PlaneModel.cpp" />
     <ClCompile Include="BCE\Platform.cpp" />
+    <ClCompile Include="BCE\PointLight.cpp" />
     <ClCompile Include="BCE\Shader.cpp" />
+    <ClCompile Include="BCE\ShaderManager.cpp" />
     <ClCompile Include="BCE\Texture.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Menu.cpp" />
@@ -142,14 +146,18 @@
   <ItemGroup>
     <ClInclude Include="BCE\Camera.h" />
     <ClInclude Include="BCE\CubeModel.h" />
+    <ClInclude Include="BCE\DirectionalLight.h" />
     <ClInclude Include="BCE\GameState.h" />
     <ClInclude Include="BCE\GameStateManager.h" />
     <ClInclude Include="BCE\Light.h" />
     <ClInclude Include="BCE\Material.h" />
     <ClInclude Include="BCE\Mesh.h" />
     <ClInclude Include="BCE\Model.h" />
+    <ClInclude Include="BCE\PlaneModel.h" />
     <ClInclude Include="BCE\Platform.h" />
+    <ClInclude Include="BCE\PointLight.h" />
     <ClInclude Include="BCE\Shader.h" />
+    <ClInclude Include="BCE\ShaderManager.h" />
     <ClInclude Include="BCE\Texture.h" />
     <ClInclude Include="Menu.h" />
   </ItemGroup>

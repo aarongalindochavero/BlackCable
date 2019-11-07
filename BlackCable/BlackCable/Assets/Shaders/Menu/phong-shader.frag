@@ -6,7 +6,6 @@ in vec2 TexCoord;
 in vec3 Normal;
 in vec3 FragPos;
 
-
 struct Light 
 {
 	vec3 myMaterialAmbient;
