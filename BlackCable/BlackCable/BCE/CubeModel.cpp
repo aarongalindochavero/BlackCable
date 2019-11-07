@@ -19,6 +19,7 @@ void CubeModel::Init()
 	ShaderManager::getPtr()->LoadShaders();
 	texture = new Texture("Assets/Textures/brick.png");
 	texture->LoadTexture();
+	material = new Material(1, 1);
 }
 
 void CubeModel::Draw()
@@ -32,6 +33,8 @@ void CubeModel::Draw()
 	angle += 0.001f;
 	glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
 	texture->UseTexture();
+
+	material->UseMaterial();
 	meshList[0]->RenderMesh();
 }
 

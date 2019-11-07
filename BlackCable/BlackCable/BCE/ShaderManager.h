@@ -21,7 +21,7 @@ public:
 	void draw();
 	GLint GetModelLocation();
 private:
-	Material* material;
+
 	Light* light;//temp
 
 	ShaderManager();

@@ -37,7 +37,6 @@ void ShaderManager::draw()
 	glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(camera->calculateViewMatrix()));
 	glUniform3f(uniformEyePosition, camera->getCameraPosition().x, camera->getCameraPosition().y, camera->getCameraPosition().z);
 	light->UseLight(myMaterialAmbient, myLightAmbient);
-	material->UseMaterial(uniformSpecularIntensity, uniformShininess);
 
 }
 void ShaderManager::initShader(Camera* camera)
@@ -60,6 +59,6 @@ void ShaderManager::initShader(Camera* camera)
 
 	myMaterialAmbient = shaderList[0].GetMyMaterialAmbient();
 	myLightAmbient = shaderList[0].GetMyLightAmbient();
-	material = new Material(1, 1);
+
 	light = new Light();
 }

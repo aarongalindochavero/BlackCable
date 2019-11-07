@@ -1,5 +1,5 @@
 #include "Material.h"
-
+#include "ShaderManager.h"
 
 
 Material::Material()
@@ -14,8 +14,11 @@ Material::Material(GLfloat sIntensity, GLfloat shine)
 	shininess = shine;
 }
 
-void Material::UseMaterial(GLuint specularIntensityLocation, GLuint shininessLocation)
+void Material::UseMaterial()
 {
+	GLuint specularIntensityLocation = 0;//adidier get from shadermanager
+	GLuint shininessLocation = 0;
+
 	glUniform1f(specularIntensityLocation, specularIntensity);
 	glUniform1f(shininessLocation, shininess);
 }
