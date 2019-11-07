@@ -27,11 +27,10 @@ void PlaneModel::Draw()
 	GLuint uniformModel = 0;
 	uniformModel = ShaderManager::getPtr()->GetModelLocation();
 	glm::mat4 model(1);
-	///model = glm::translate(model, glm::vec3(0.0f, 0.0f, -2.5f));
-	model = glm::scale(model, glm::vec3(4.4f, 4.4f, 4.0f));
-	model = glm::rotate(model, 90.0f, glm::vec3(0, 1.0f, 0.0f));
-	//angle += 0.001f;
-	glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+	transform.SetTranslation(0.0f, 0.0f, -2.5f);
+	transform.SetScale(4.4f, 4.4f, 4.0f);
+	transform.SetRotationVector(angle, 0, 1.0f, 0.0f);
+	glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(transform.GetTransform()));
 	texture->UseTexture();
 	meshList[0]->RenderMesh();
 	//glUseProgram(0);
