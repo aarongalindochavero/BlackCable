@@ -5,9 +5,7 @@
 #include "Mesh.h"
 #include "Camera.h"
 #include<vector>
-
-
-
+#include "Transform.h"
 
 class Model
 {
@@ -17,6 +15,7 @@ public:
 protected:
 	virtual void LoadMesh() = 0;
 	std::vector<Mesh*> meshList;
+	Transform transform;
 
 	void calcAverageNormals(unsigned int* indices, unsigned int indiceCount, GLfloat* vertices, unsigned int verticeCount,
 		unsigned int vLength, unsigned int normalOffset)
