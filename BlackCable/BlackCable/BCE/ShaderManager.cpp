@@ -36,8 +36,27 @@ void ShaderManager::draw()
 	glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
 	glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(camera->calculateViewMatrix()));
 	glUniform3f(uniformEyePosition, camera->getCameraPosition().x, camera->getCameraPosition().y, camera->getCameraPosition().z);
-	light->UseLight(myMaterialAmbient, myLightAmbient);
 
+
+
+	mainLight = DirectionalLight(0.1f, 0.1f, 0.1f,
+		0.0f, 0.0f,
+		0.0f, 0.0f, -1.0f);
+
+	unsigned int pointLightCount = 0;
+	pointLights[0] = PointLight(0.0f, 0.0f, 1.0f,
+		0.0f, 1.0f,
+		-3.0f, 2.0f, 0.0f,
+		0.3f, 0.2f, 0.1f);
+	pointLightCount++;
+	pointLights[1] = PointLight(0.0f, 1.0f, 0.0f,
+		0.0f, 1.0f,
+		3.0f, 2.0f, 0.0f,
+		0.3f, 0.1f, 0.1f);
+	pointLightCount++;
+
+	shaderList[0].SetDirectionalLight(&mainLight);
+	shaderList[0].SetPointLights(pointLights, pointLightCount);
 }
 void ShaderManager::initShader(Camera* camera)
 {
@@ -49,16 +68,12 @@ void ShaderManager::initShader(Camera* camera)
 	uniformProjection = shaderList[0].GetProjectionLocation();
 	uniformView = shaderList[0].GetViewLocation();
 
-	//uniformAmbientColour = shaderList[0].GetAmbientColourLocation();
-	//uniformAmbientIntensity = shaderList[0].GetAmbientIntensityLocation();
-	//uniformDirection = shaderList[0].GetDirectionLocation();
-	//uniformDiffuseIntensity = shaderList[0].GetDiffuseIntensityLocation();
-	//uniformEyePosition = shaderList[0].GetEyePositionLocation();
-	//uniformSpecularIntensity = shaderList[0].GetSpecularIntensityLocation();
-	//uniformShininess = shaderList[0].GetShininessLocation();
+	uniformAmbientColour = shaderList[0].GetAmbientColourLocation();
+	uniformAmbientIntensity = shaderList[0].GetAmbientIntensityLocation();
+	uniformDirection = shaderList[0].GetDirectionLocation();
+	uniformDiffuseIntensity = shaderList[0].GetDiffuseIntensityLocation();
+	uniformEyePosition = shaderList[0].GetEyePositionLocation();
+	uniformSpecularIntensity = shaderList[0].GetSpecularIntensityLocation();
+	uniformShininess = shaderList[0].GetShininessLocation();
 
-	myMaterialAmbient = shaderList[0].GetMyMaterialAmbient();
-	myLightAmbient = shaderList[0].GetMyLightAmbient();
-
-	light = new Light();
 }

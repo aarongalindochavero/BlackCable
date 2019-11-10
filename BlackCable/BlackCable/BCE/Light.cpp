@@ -2,17 +2,19 @@
 
 Light::Light()
 {
-	materialAmbient = glm::vec3(1, 0.5, 0);
-	lightAmbient = glm::vec3(0.2, 0.2, 0.2);
-
+	colour = glm::vec3(1.0f, 1.0f, 1.0f);
+	ambientIntensity = 1.0f;
+	diffuseIntensity = 0.0f;
 }
 
-void Light::UseLight(GLfloat myMaterialAmbient, GLfloat myLightAmbient)
+Light::Light(GLfloat red, GLfloat green, GLfloat blue, GLfloat aIntensity, GLfloat dIntensity)
 {
-	glUniform3f(myMaterialAmbient, materialAmbient.x, materialAmbient.y, materialAmbient.z);
-	glUniform3f(myLightAmbient, lightAmbient.x, lightAmbient.y, lightAmbient.z);
+	colour = glm::vec3(red, green, blue);
+	ambientIntensity = aIntensity;
+	diffuseIntensity = dIntensity;
 }
 
 Light::~Light()
 {
 }
+

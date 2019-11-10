@@ -27,9 +27,9 @@ void PlaneModel::Draw()
 	GLuint uniformModel = 0;
 	uniformModel = ShaderManager::getPtr()->GetModelLocation();
 	glm::mat4 model(1);
-	transform.SetTranslation(0.0f, 0.0f, -2.5f);
-	transform.SetScale(4.4f, 4.4f, 4.0f);
-	transform.SetRotation(0, 1.0f, 0.0f);
+	transform.SetTranslation(0.0f,  -2.5f, 0.0f);
+	transform.SetScale(14.0f, 14.0f, 14.0f);
+	transform.SetRotation(0.0f, 0.0f, 0.0f);
 	glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(transform.GetTransform()));
 	texture->UseTexture();
 	meshList[0]->RenderMesh();
@@ -45,10 +45,10 @@ void PlaneModel::LoadMesh()
 	};
 
 	GLfloat vertices[] = {
-		-1.0, -1.0,  1.0, 0.0f, 0.0f,		0.4f, 0.0f, 0.8f,//0
-		1.0, -1.0,  1.0,1.0f, 0.0f,		0.0f, 0.0f, 0.0f,//1
-		1.0,  1.0,  1.0,0.0f, 1.0f,		0.0f, 0.0f, 0.0f,//2
-		-1.0,  1.0,  1.0,1.0f, 0.0f,		0.0f, 0.0f, 0.0f,//3
+		-1.0, 0,  -1.0, 0.0f, 0.0f,		0.4f, 0.0f, 0.8f,//0
+		1.0, 0,  -1.0,1.0f, 0.0f,		0.0f, 0.0f, 0.0f,//1
+		1.0,  0,  1.0,0.0f, 1.0f,		0.0f, 0.0f, 0.0f,//2
+		-1.0,  .0,  1.0,1.0f, 0.0f,		0.0f, 0.0f, 0.0f,//3
 	};
 	calcAverageNormals(indices, 6, vertices, 32, 8, 5);
 
