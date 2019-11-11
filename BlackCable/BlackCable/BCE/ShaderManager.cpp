@@ -31,6 +31,16 @@ GLint ShaderManager::GetModelLocation()
 {
 	return uniformModel;
 }
+
+GLint ShaderManager::GetSpecularIntensityLocation()
+{
+	return uniformSpecularIntensity;
+}
+
+GLint ShaderManager::GetShininessLocation()
+{
+	return uniformShininess;
+}
 void ShaderManager::draw()
 {
 	glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
@@ -39,19 +49,19 @@ void ShaderManager::draw()
 
 
 
-	mainLight = DirectionalLight(0.1f, 0.1f, 0.1f,
-		0.0f, 0.0f,
+	mainLight = DirectionalLight(1.1f, 1.1f, 1.1f,
+		1.0f, 1.0f,
 		0.0f, 0.0f, -1.0f);
 
 	unsigned int pointLightCount = 0;
 	pointLights[0] = PointLight(0.0f, 0.0f, 1.0f,
 		0.0f, 1.0f,
-		-3.0f, 2.0f, 0.0f,
+		-3.0f, 0.0f, 0.0f,
 		0.3f, 0.2f, 0.1f);
 	pointLightCount++;
 	pointLights[1] = PointLight(0.0f, 1.0f, 0.0f,
 		0.0f, 1.0f,
-		3.0f, 2.0f, 0.0f,
+		3.0f, 0.0f, 0.0f,
 		0.3f, 0.1f, 0.1f);
 	pointLightCount++;
 

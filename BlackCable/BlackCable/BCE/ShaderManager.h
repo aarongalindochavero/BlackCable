@@ -20,6 +20,8 @@ public:
 	void initShader(Camera* camera);
 	void draw();
 	GLint GetModelLocation();
+	GLint GetSpecularIntensityLocation();
+	GLint GetShininessLocation();
 private:
 	ShaderManager();
 	std::vector<Shader> shaderList;

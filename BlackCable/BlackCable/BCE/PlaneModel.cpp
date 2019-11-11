@@ -19,7 +19,10 @@ void PlaneModel::Init()
 	LoadMesh();
 	texture = new Texture("Assets/Textures/brick.png");
 	texture->LoadTexture();
-
+	textureNormal = new Texture("Assets/Textures/bricknormal.png");
+	textureNormal->LoadTexture();
+	
+	material = new Material(1, 1);
 }
 
 void PlaneModel::Draw()
@@ -31,8 +34,13 @@ void PlaneModel::Draw()
 	transform.SetScale(14.0f, 14.0f, 14.0f);
 	transform.SetRotation(0.0f, 0.0f, 0.0f);
 	glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(transform.GetTransform()));
-	texture->UseTexture();
+	material->UseMaterial(ShaderManager::getPtr()->GetSpecularIntensityLocation(),
+		ShaderManager::getPtr()->GetShininessLocation());
+	texture->UseTexture(GL_TEXTURE0);
+	textureNormal->UseTexture(GL_TEXTURE1);
 	meshList[0]->RenderMesh();
+	glBindTexture(GL_TEXTURE_2D, 0);
+	//glBindTexture(GL_TEXTURE_2D, 1);
 	//glUseProgram(0);
 }
 

@@ -9,7 +9,7 @@ public:
 	Texture();
 	Texture(std::string fileLoc);
 	void LoadTexture();
-	void UseTexture();
+	void UseTexture(unsigned int i = 0);
 	void ClearTexture();
 	~Texture();
 private:

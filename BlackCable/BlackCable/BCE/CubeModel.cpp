@@ -29,11 +29,11 @@ void CubeModel::Draw()
 	angle += 0.001f;
 	transform.SetTranslation(0.0f, 0.0f, -2.5f);
 	transform.SetScale(1.0f, 1.0f, 1.0f);
-	transform.SetRotation(angle, angle, 0.0f);
+	//transform.SetRotation(angle, angle, 0.0f);
 	glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(transform.GetTransform()));
-	texture->UseTexture();
-
-	material->UseMaterial();
+	material->UseMaterial(ShaderManager::getPtr()->GetSpecularIntensityLocation(),
+		ShaderManager::getPtr()->GetShininessLocation());
+	texture->UseTexture(GL_TEXTURE0);
 	meshList[0]->RenderMesh();
 }
 

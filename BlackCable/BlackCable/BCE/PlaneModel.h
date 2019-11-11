@@ -20,6 +20,7 @@ private:
 	void LoadMesh() override;
 	float angle{ 0 };
 	Texture *texture;
+	Texture *textureNormal;
 	Material* material;
 };
 

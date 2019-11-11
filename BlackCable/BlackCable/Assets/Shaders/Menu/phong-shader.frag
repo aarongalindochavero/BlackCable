@@ -43,6 +43,7 @@ uniform DirectionalLight directionalLight;
 uniform PointLight pointLights[MAX_POINT_LIGHTS];
 
 uniform sampler2D theTexture;
+uniform sampler2D normalMap;  
 uniform Material material;
 
 uniform vec3 eyePosition;
@@ -99,10 +100,13 @@ vec4 CalcPointLights()
 
 void main()
 {
+	//Normal = texture(normalMap, fs_in.TexCoords).rgb;
+//    // transform normal vector to range [-1,1]
+//    Normal = normalize(Normal * 2.0 - 1.0);   
 	vec4 finalColour = CalcDirectionalLight();
 	finalColour += CalcPointLights();
 	
-	colour = texture(theTexture, TexCoord) * finalColour;
+	colour = texture(normalMap, TexCoord) * finalColour;
 }
 
 //#version 330

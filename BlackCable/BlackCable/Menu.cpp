@@ -34,7 +34,7 @@ void Menu::Draw()
 {
 	platform->RenderClear();
 	shaderManager->draw();
-	cube->Draw();
+	//cube->Draw();
 	plane->Draw();
 	platform->RenderPresent();
 }
