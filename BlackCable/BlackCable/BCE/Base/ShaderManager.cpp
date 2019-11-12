@@ -49,20 +49,20 @@ void ShaderManager::draw()
 
 
 
-	mainLight = DirectionalLight(1.1f, 1.1f, 1.1f,
-		1.0f, 1.0f,
+	mainLight = DirectionalLight(0.5f, 0.5f, 0.5f,
+		0.01f, 0.01f,
 		0.0f, 0.0f, -1.0f);
 
 	unsigned int pointLightCount = 0;
-	pointLights[0] = PointLight(0.0f, 0.0f, 1.0f,
-		0.0f, 1.0f,
+	pointLights[0] = PointLight(1.0f, 0.0f, 1.0f,
+		1.5f, 1.5f,
 		-3.0f, 0.0f, 0.0f,
 		0.3f, 0.2f, 0.1f);
 	pointLightCount++;
-	pointLights[1] = PointLight(0.0f, 1.0f, 0.0f,
-		0.0f, 1.0f,
-		3.0f, 0.0f, 0.0f,
-		0.3f, 0.1f, 0.1f);
+	pointLights[1] = PointLight(1.0f, 0.0f, 1.0f,
+		1.5f, 1.5f,
+		-3.0f, 0.0f, 0.0f,
+		0.3f, 0.2f, 0.1f);
 	pointLightCount++;
 
 	shaderList[0].SetDirectionalLight(&mainLight);

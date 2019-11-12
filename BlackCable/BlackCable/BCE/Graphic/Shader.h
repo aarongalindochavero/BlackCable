@@ -6,8 +6,8 @@
 #include <fstream>
 
 #include <GL\glew.h>
-#include "DirectionalLight.h"
-#include "PointLight.h"
+#include "../Lights/DirectionalLight.h"
+#include "../Lights/PointLight.h"
 
 
 const int MAX_POINT_LIGHTS = 3;

@@ -1,13 +1,12 @@
 #pragma once
 #include<vector>
-#include "Shader.h"
-#include "Camera.h"
+#include "../Graphic/Shader.h"
+#include "../Graphic/Camera.h"
 #include <glm.hpp>
 #include <gtc\matrix_transform.hpp>
 #include <gtc\type_ptr.hpp>
-#include "Camera.h"
-#include "Material.h"
-#include "Light.h"
+#include "../Graphic/Material.h"
+#include "../Lights/Light.h"
 
 class ShaderManager
 {

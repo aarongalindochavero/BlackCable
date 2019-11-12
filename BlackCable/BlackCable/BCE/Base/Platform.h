@@ -27,16 +27,18 @@ public:
 
 	void RenderClear();
 	void RenderPresent();
-	void CheckEvent(GameState* obj, bool (GameState::* keyboard)(std::map<int, bool>), bool (GameState::* mouse)(int, int));
+	void CheckEvent(GameState* obj, bool (GameState::* keyboard)(std::map<int, bool>), bool (GameState::* mouse)(int, int, bool));
 	int GetWidth();
 	int GetHeight();
 	float GetDeltaTime();
 public:
 	static GameState * obj;
 	static bool (GameState::* keyboard)(std::map<int, bool>);
-	static bool (GameState::* mouse)(int, int);
+	static bool (GameState::* mouse)(int, int, bool);
 	static std::map<int, bool> keys;
+	static bool leftButtonMouse;
 private:
 	static void HandleKeys(GLFWwindow* window, int key, int code, int action, int mode);
-	static void HandleMouse(GLFWwindow* window, double xPos, double yPos);
+	static void HandleMousePosition(GLFWwindow* window, double x, double y);
+	static void HandleMouseButton(GLFWwindow* window, int button, int action, int mod);
 };

@@ -7,19 +7,20 @@
 #include"Model.h"
 #include"Texture.h"
 #include "Material.h"
-#include "Light.h"
+#include "../Lights/Light.h"
 
-class CubeModel : Model
+class PlaneModel : Model
 {
 public:
-	CubeModel();
-	~CubeModel();
+	PlaneModel();
+	~PlaneModel();
 	void Init() override;
 	void Draw() override;
 private:
 	void LoadMesh() override;
 	float angle{ 0 };
 	Texture *texture;
+	Texture *textureNormal;
 	Material* material;
 };
 

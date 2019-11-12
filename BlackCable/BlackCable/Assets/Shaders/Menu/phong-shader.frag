@@ -2,7 +2,7 @@
 
 in vec4 vCol;
 in vec2 TexCoord;
-in vec3 Normal;
+in vec3 Normal1;
 in vec3 FragPos;
 
 out vec4 colour;
@@ -50,6 +50,9 @@ uniform vec3 eyePosition;
 
 vec4 CalcLightByDirection(Light light, vec3 direction)
 {
+    vec3 Normal = texture(normalMap, TexCoord).rgb;
+    Normal = normalize(Normal*2-1);  
+//
 	vec4 ambientColour = vec4(light.colour, 1.0f) * light.ambientIntensity;
 	
 	float diffuseFactor = max(dot(normalize(Normal), normalize(direction)), 0.0f);
@@ -86,7 +89,6 @@ vec4 CalcPointLights()
 		vec3 direction = FragPos - pointLights[i].position;
 		float distance = length(direction);
 		direction = normalize(direction);
-		
 		vec4 colour = CalcLightByDirection(pointLights[i].base, direction);
 		float attenuation = pointLights[i].exponent * distance * distance +
 							pointLights[i].linear * distance +
@@ -100,9 +102,7 @@ vec4 CalcPointLights()
 
 void main()
 {
-	//Normal = texture(normalMap, fs_in.TexCoords).rgb;
-//    // transform normal vector to range [-1,1]
-//    Normal = normalize(Normal * 2.0 - 1.0);   
+
 	vec4 finalColour = CalcDirectionalLight();
 	finalColour += CalcPointLights();
 	

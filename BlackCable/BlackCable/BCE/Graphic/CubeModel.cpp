@@ -2,7 +2,7 @@
 #include <glm.hpp>
 #include <gtc\matrix_transform.hpp>
 #include <gtc\type_ptr.hpp>
-#include "ShaderManager.h"
+#include "../Base/ShaderManager.h"
 
 CubeModel::CubeModel()
 {
@@ -19,21 +19,25 @@ void CubeModel::Init()
 	ShaderManager::getPtr()->LoadShaders();
 	texture = new Texture("Assets/Textures/brick.png");
 	texture->LoadTexture();
-	material = new Material(1, 1);
+	textureNormal = new Texture("Assets/Textures/bricknormal.png");
+	textureNormal->LoadTexture();
+	material = new Material(0.5, 0.5);
 }
 
 void CubeModel::Draw()
 {
 	GLuint uniformModel = 0;
 	uniformModel = ShaderManager::getPtr()->GetModelLocation();
-	angle += 0.001f;
+	angle += 0.0001f;
 	transform.SetTranslation(0.0f, 0.0f, -2.5f);
 	transform.SetScale(1.0f, 1.0f, 1.0f);
-	//transform.SetRotation(angle, angle, 0.0f);
+	transform.SetRotation(0, 0, angle);
 	glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(transform.GetTransform()));
 	material->UseMaterial(ShaderManager::getPtr()->GetSpecularIntensityLocation(),
 		ShaderManager::getPtr()->GetShininessLocation());
 	texture->UseTexture(GL_TEXTURE0);
+	textureNormal->UseTexture(GL_TEXTURE1);
+
 	meshList[0]->RenderMesh();
 }
 

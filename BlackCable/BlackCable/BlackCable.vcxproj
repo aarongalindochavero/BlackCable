@@ -28,7 +28,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -126,41 +126,42 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="BCE\Camera.cpp" />
-    <ClCompile Include="BCE\CubeModel.cpp" />
-    <ClCompile Include="BCE\DirectionalLight.cpp" />
-    <ClCompile Include="BCE\GameState.cpp" />
-    <ClCompile Include="BCE\GameStateManager.cpp" />
-    <ClCompile Include="BCE\Light.cpp" />
-    <ClCompile Include="BCE\Material.cpp" />
-    <ClCompile Include="BCE\Mesh.cpp" />
-    <ClCompile Include="BCE\PlaneModel.cpp" />
-    <ClCompile Include="BCE\Platform.cpp" />
-    <ClCompile Include="BCE\PointLight.cpp" />
-    <ClCompile Include="BCE\Shader.cpp" />
-    <ClCompile Include="BCE\ShaderManager.cpp" />
-    <ClCompile Include="BCE\Texture.cpp" />
-    <ClCompile Include="BCE\Transform.cpp" />
+    <ClCompile Include="BCE\Base\GameState.cpp" />
+    <ClCompile Include="BCE\Base\GameStateManager.cpp" />
+    <ClCompile Include="BCE\Base\Platform.cpp" />
+    <ClCompile Include="BCE\Base\ShaderManager.cpp" />
+    <ClCompile Include="BCE\Base\Transform.cpp" />
+    <ClCompile Include="BCE\Graphic\Camera.cpp" />
+    <ClCompile Include="BCE\Graphic\CubeModel.cpp" />
+    <ClCompile Include="BCE\Graphic\Material.cpp" />
+    <ClCompile Include="BCE\Graphic\Mesh.cpp" />
+    <ClCompile Include="BCE\Graphic\Model.cpp" />
+    <ClCompile Include="BCE\Graphic\PlaneModel.cpp" />
+    <ClCompile Include="BCE\Graphic\Shader.cpp" />
+    <ClCompile Include="BCE\Graphic\Texture.cpp" />
+    <ClCompile Include="BCE\Lights\DirectionalLight.cpp" />
+    <ClCompile Include="BCE\Lights\Light.cpp" />
+    <ClCompile Include="BCE\Lights\PointLight.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Menu.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BCE\Camera.h" />
-    <ClInclude Include="BCE\CubeModel.h" />
-    <ClInclude Include="BCE\DirectionalLight.h" />
-    <ClInclude Include="BCE\GameState.h" />
-    <ClInclude Include="BCE\GameStateManager.h" />
-    <ClInclude Include="BCE\Light.h" />
-    <ClInclude Include="BCE\Material.h" />
-    <ClInclude Include="BCE\Mesh.h" />
-    <ClInclude Include="BCE\Model.h" />
-    <ClInclude Include="BCE\PlaneModel.h" />
-    <ClInclude Include="BCE\Platform.h" />
-    <ClInclude Include="BCE\PointLight.h" />
-    <ClInclude Include="BCE\Shader.h" />
-    <ClInclude Include="BCE\ShaderManager.h" />
-    <ClInclude Include="BCE\Texture.h" />
-    <ClInclude Include="BCE\Transform.h" />
+    <ClInclude Include="BCE\Base\GameState.h" />
+    <ClInclude Include="BCE\Base\GameStateManager.h" />
+    <ClInclude Include="BCE\Base\Platform.h" />
+    <ClInclude Include="BCE\Base\ShaderManager.h" />
+    <ClInclude Include="BCE\Base\Transform.h" />
+    <ClInclude Include="BCE\Graphic\Camera.h" />
+    <ClInclude Include="BCE\Graphic\CubeModel.h" />
+    <ClInclude Include="BCE\Graphic\Material.h" />
+    <ClInclude Include="BCE\Graphic\Mesh.h" />
+    <ClInclude Include="BCE\Graphic\Model.h" />
+    <ClInclude Include="BCE\Graphic\PlaneModel.h" />
+    <ClInclude Include="BCE\Graphic\Shader.h" />
+    <ClInclude Include="BCE\Graphic\Texture.h" />
+    <ClInclude Include="BCE\Lights\DirectionalLight.h" />
+    <ClInclude Include="BCE\Lights\Light.h" />
+    <ClInclude Include="BCE\Lights\PointLight.h" />
     <ClInclude Include="Menu.h" />
   </ItemGroup>
   <ItemGroup>

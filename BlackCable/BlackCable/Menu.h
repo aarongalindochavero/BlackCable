@@ -1,12 +1,12 @@
 #pragma once
-#include "BCE/GameState.h"
-#include "BCE/GameStateManager.h"
-#include "BCE/Mesh.h"
-#include "BCE/Shader.h"
-#include "BCE/Camera.h"
-#include "BCE/CubeModel.h"
-#include "BCE/PlaneModel.h"
-#include "BCE/ShaderManager.h"
+#include "BCE/Base/GameState.h"
+#include "BCE/Base/GameStateManager.h"
+#include "BCE/Graphic/Mesh.h"
+#include "BCE/Graphic/Shader.h"
+#include "BCE/Graphic/Camera.h"
+#include "BCE/Graphic/CubeModel.h"
+#include "BCE/Graphic/PlaneModel.h"
+#include "BCE/Base/ShaderManager.h"
 #include<vector>
 class Menu : public GameState
 {
@@ -23,7 +23,7 @@ public:
 	void Init() override;
 	void Draw() override;
 	bool Input(std::map<int, bool> keys) override;
-	bool MouseInput(int x, int y);
+	bool MouseInput(int x, int y, bool leftbutton);
 	void Update() override;
 	void Close() override;
 

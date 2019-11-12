@@ -2,7 +2,7 @@
 #include <glm.hpp>
 #include <gtc\matrix_transform.hpp>
 #include <gtc\type_ptr.hpp>
-#include "ShaderManager.h"
+#include "../Base/ShaderManager.h"
 
 
 PlaneModel::PlaneModel()
@@ -17,7 +17,7 @@ PlaneModel::~PlaneModel()
 void PlaneModel::Init()
 {
 	LoadMesh();
-	texture = new Texture("Assets/Textures/brick.png");
+	texture = new Texture("Assets/Textures/brick2.png");
 	texture->LoadTexture();
 	textureNormal = new Texture("Assets/Textures/bricknormal.png");
 	textureNormal->LoadTexture();
@@ -32,7 +32,7 @@ void PlaneModel::Draw()
 	glm::mat4 model(1);
 	transform.SetTranslation(0.0f,  -2.5f, 0.0f);
 	transform.SetScale(14.0f, 14.0f, 14.0f);
-	transform.SetRotation(0.0f, 0.0f, 0.0f);
+	//transform.SetRotation(0.0f, 0.0f, 1.5f);
 	glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(transform.GetTransform()));
 	material->UseMaterial(ShaderManager::getPtr()->GetSpecularIntensityLocation(),
 		ShaderManager::getPtr()->GetShininessLocation());
