@@ -24,7 +24,8 @@ GameStateManager* GameStateManager::getPtr()
 }
 void GameStateManager::GameLoop()
 {
-	while (true)
+	//Para que el juego se cierre al poner ESC
+	while (!platform->shouldWindowClose())
 	{
 		try
 		{

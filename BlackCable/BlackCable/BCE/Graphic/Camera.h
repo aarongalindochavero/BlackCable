@@ -31,6 +31,8 @@ private:
 
 	GLfloat moveSpeed;
 	GLfloat turnSpeed;
+	GLfloat prevXPos, prevYPos;
+	float firstMove;
 
 	void update();
 };
