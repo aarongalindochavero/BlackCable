@@ -31,6 +31,7 @@ public:
 	int GetWidth();
 	int GetHeight();
 	float GetDeltaTime();
+	bool shouldWindowClose();
 public:
 	static GameState * obj;
 	static bool (GameState::* keyboard)(std::map<int, bool>);

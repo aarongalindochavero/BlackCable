@@ -47,7 +47,7 @@ void Platform::init()
 
 	// Set the current context
 	glfwMakeContextCurrent(mainWindow);
-
+	glfwSetInputMode(mainWindow, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 	// Allow modern extension access
 	glewExperimental = GL_TRUE;
 
@@ -136,6 +136,8 @@ void  Platform::HandleKeys(GLFWwindow* window, int key, int code, int action, in
 			Platform::keys[key] = false;
 		}
 	}
+	if (keys[GLFW_KEY_ESCAPE])
+		glfwSetWindowShouldClose(window, 1);
 	(Platform::obj->*Platform::keyboard)(keys);
 }
 
@@ -149,4 +151,8 @@ void Platform::HandleMouseButton(GLFWwindow* window, int button, int action, int
 {
 	(Platform::obj->*Platform::mouse)(-1, -1, action);
 
+}
+
+bool Platform::shouldWindowClose() {
+	return glfwWindowShouldClose(mainWindow);
 }
