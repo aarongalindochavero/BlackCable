@@ -8,6 +8,9 @@
 #include "BCE/Graphic/PlaneModel.h"
 #include "BCE/Base/ShaderManager.h"
 #include<vector>
+using namespace BCE::Base;
+using namespace BCE::Lights;
+using namespace BCE::Graphics;
 class Menu : public GameState
 {
 private:
@@ -19,7 +22,7 @@ private:
 	PlaneModel* plane;
 public:
 	Menu();
-	~Menu();
+	virtual ~Menu();
 	void Init() override;
 	void Draw() override;
 	bool Input(std::map<int, bool> keys) override;

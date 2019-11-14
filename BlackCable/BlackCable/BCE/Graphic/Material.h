@@ -1,19 +1,25 @@
 #pragma once
 
 #include <GL\glew.h>
-
-class Material
+namespace BCE
 {
-public:
-	Material();
-	Material(GLfloat sIntensity, GLfloat shine);
+	namespace Graphics
+	{
 
-	void UseMaterial(GLuint specularIntensityLocation, GLuint shininessLocation);
+		class Material
+		{
+		public:
+			Material();
+			Material(GLfloat sIntensity, GLfloat shine);
 
-	~Material();
+			void UseMaterial(GLuint specularIntensityLocation, GLuint shininessLocation);
 
-private: 
-	GLfloat specularIntensity;
-	GLfloat shininess;
-};
+			~Material();
 
+		private:
+			GLfloat specularIntensity;
+			GLfloat shininess;
+		};
+
+	}
+}

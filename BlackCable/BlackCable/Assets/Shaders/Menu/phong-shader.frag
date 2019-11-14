@@ -2,9 +2,9 @@
 
 in vec4 vCol;
 in vec2 TexCoord;
-in vec3 Normal1;
 in vec3 FragPos;
-
+in mat3 TBN;	
+in vec3 Normal1;
 out vec4 colour;
 
 const int MAX_POINT_LIGHTS = 3;
@@ -52,6 +52,7 @@ vec4 CalcLightByDirection(Light light, vec3 direction)
 {
     vec3 Normal = texture(normalMap, TexCoord).rgb;
     Normal = normalize(Normal*2-1);  
+	Normal = normalize(TBN * Normal); 
 //
 	vec4 ambientColour = vec4(light.colour, 1.0f) * light.ambientIntensity;
 	

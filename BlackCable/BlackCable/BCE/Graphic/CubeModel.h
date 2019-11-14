@@ -8,19 +8,25 @@
 #include"Texture.h"
 #include "Material.h"
 #include "../Lights/Light.h"
-
-class CubeModel : Model
+namespace BCE
 {
-public:
-	CubeModel();
-	~CubeModel();
-	void Init() override;
-	void Draw() override;
-private:
-	void LoadMesh() override;
-	float angle{ 0 };
-	Texture *texture;
-	Texture *textureNormal;
-	Material* material;
-};
+	namespace Graphics
+	{
 
+		class CubeModel : Model
+		{
+		public:
+			CubeModel();
+			~CubeModel();
+			void Init() override;
+			void Draw() override;
+		private:
+			void LoadMesh() override;
+			float angle{ 0 };
+			Texture* texture;
+			Texture* textureNormal;
+			Material* material;
+		};
+
+	}
+}

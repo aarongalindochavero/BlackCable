@@ -12,61 +12,70 @@
 
 const int MAX_POINT_LIGHTS = 3;
 
-class Shader
+using namespace BCE::Lights;
+
+namespace BCE
 {
-public:
-	Shader();
+	namespace Graphics
+	{
 
-	void CreateFromString(const char* vertexCode, const char* fragmentCode);
-	void CreateFromFiles(const char* vertexLocation, const char* fragmentLocation);
+		class Shader
+		{
+		public:
+			Shader();
 
-	std::string ReadFile(const char* fileLocation);
+			void CreateFromString(const char* vertexCode, const char* fragmentCode);
+			void CreateFromFiles(const char* vertexLocation, const char* fragmentLocation);
 
-	GLuint GetProjectionLocation();
-	GLuint GetModelLocation();
-	GLuint GetViewLocation();
-	////Material
-	GLuint GetAmbientIntensityLocation();
-	GLuint GetAmbientColourLocation();
-	GLuint GetDiffuseIntensityLocation();
-	GLuint GetDirectionLocation();
-	GLuint GetSpecularIntensityLocation();
-	GLuint GetShininessLocation();
-	GLuint GetEyePositionLocation();
-	
-	void UseShader();
-	void ClearShader();
-	~Shader();
-	void SetDirectionalLight(DirectionalLight * dLight);
-	void SetPointLights(PointLight * pLight, unsigned int lightCount);
-private:
-	GLuint shaderID, uniformProjection, uniformModel, uniformView, uniformEyePosition;
-	GLint uniformSpecularIntensity, uniformShininess;
-	//GLuint uniformAmbientIntensity, uniformAmbientColour, uniformDiffuseIntensity, uniformDirection,
-	//	   uniformSpecularIntensity, uniformShininess,
-	//	   myMaterialAmbient, myLightAmbient;
+			std::string ReadFile(const char* fileLocation);
 
-	void CompileShader(const char* vertexCode, const char* fragmentCode);
-	void AddShader(GLuint theProgram, const char* shaderCode, GLenum shaderType);
+			GLuint GetProjectionLocation();
+			GLuint GetModelLocation();
+			GLuint GetViewLocation();
+			////Material
+			GLuint GetAmbientIntensityLocation();
+			GLuint GetAmbientColourLocation();
+			GLuint GetDiffuseIntensityLocation();
+			GLuint GetDirectionLocation();
+			GLuint GetSpecularIntensityLocation();
+			GLuint GetShininessLocation();
+			GLuint GetEyePositionLocation();
+
+			void UseShader();
+			void ClearShader();
+			~Shader();
+			void SetDirectionalLight(DirectionalLight* dLight);
+			void SetPointLights(PointLight* pLight, unsigned int lightCount);
+		private:
+			GLuint shaderID, uniformProjection, uniformModel, uniformView, uniformEyePosition;
+			GLint uniformSpecularIntensity, uniformShininess;
+			//GLuint uniformAmbientIntensity, uniformAmbientColour, uniformDiffuseIntensity, uniformDirection,
+			//	   uniformSpecularIntensity, uniformShininess,
+			//	   myMaterialAmbient, myLightAmbient;
+
+			void CompileShader(const char* vertexCode, const char* fragmentCode);
+			void AddShader(GLuint theProgram, const char* shaderCode, GLenum shaderType);
 
 
-	GLuint uniformPointLightCount;
-	struct {
-		GLuint uniformColour;
-		GLuint uniformAmbientIntensity;
-		GLuint uniformDiffuseIntensity;
+			GLuint uniformPointLightCount;
+			struct {
+				GLuint uniformColour;
+				GLuint uniformAmbientIntensity;
+				GLuint uniformDiffuseIntensity;
 
-		GLuint uniformPosition;
-		GLuint uniformConstant;
-		GLuint uniformLinear;
-		GLuint uniformExponent;
-	} uniformPointLight[MAX_POINT_LIGHTS];
-	struct {
-		GLuint uniformColour;
-		GLuint uniformAmbientIntensity;
-		GLuint uniformDiffuseIntensity;
+				GLuint uniformPosition;
+				GLuint uniformConstant;
+				GLuint uniformLinear;
+				GLuint uniformExponent;
+			} uniformPointLight[MAX_POINT_LIGHTS];
+			struct {
+				GLuint uniformColour;
+				GLuint uniformAmbientIntensity;
+				GLuint uniformDiffuseIntensity;
 
-		GLuint uniformDirection;
-	} uniformDirectionalLight;
-};
+				GLuint uniformDirection;
+			} uniformDirectionalLight;
+		};
 
+	}
+}

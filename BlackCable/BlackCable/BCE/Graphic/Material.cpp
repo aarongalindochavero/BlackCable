@@ -1,26 +1,32 @@
 #include "Material.h"
 #include "../Base/ShaderManager.h"
 
-
-Material::Material()
+namespace BCE
 {
-	specularIntensity = 0.0f;
-	shininess = 0.0f;
-}
+	namespace Graphics
+	{
 
-Material::Material(GLfloat sIntensity, GLfloat shine)
-{
-	specularIntensity = sIntensity;
-	shininess = shine;
-}
+		Material::Material()
+		{
+			specularIntensity = 0.0f;
+			shininess = 0.0f;
+		}
 
-void Material::UseMaterial(GLuint specularIntensityLocation, GLuint shininessLocation)
-{
+		Material::Material(GLfloat sIntensity, GLfloat shine)
+		{
+			specularIntensity = sIntensity;
+			shininess = shine;
+		}
 
-	glUniform1f(specularIntensityLocation, specularIntensity);
-	glUniform1f(shininessLocation, shininess);
-}
+		void Material::UseMaterial(GLuint specularIntensityLocation, GLuint shininessLocation)
+		{
 
-Material::~Material()
-{
+			glUniform1f(specularIntensityLocation, specularIntensity);
+			glUniform1f(shininessLocation, shininess);
+		}
+
+		Material::~Material()
+		{
+		}
+	}
 }

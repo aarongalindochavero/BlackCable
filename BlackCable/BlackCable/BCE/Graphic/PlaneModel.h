@@ -9,18 +9,25 @@
 #include "Material.h"
 #include "../Lights/Light.h"
 
-class PlaneModel : Model
+namespace BCE
 {
-public:
-	PlaneModel();
-	~PlaneModel();
-	void Init() override;
-	void Draw() override;
-private:
-	void LoadMesh() override;
-	float angle{ 0 };
-	Texture *texture;
-	Texture *textureNormal;
-	Material* material;
-};
+	namespace Graphics
+	{
 
+		class PlaneModel : Model
+		{
+		public:
+			PlaneModel();
+			~PlaneModel();
+			void Init() override;
+			void Draw() override;
+		private:
+			void LoadMesh() override;
+			float angle{ 0 };
+			Texture* texture;
+			Texture* textureNormal;
+			Material* material;
+		};
+
+	}
+}
