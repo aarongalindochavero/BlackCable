@@ -7,6 +7,7 @@
 #include "BCE/Graphic/CubeModel.h"
 #include "BCE/Graphic/PlaneModel.h"
 #include "BCE/Base/ShaderManager.h"
+#include "BCE/Graphic/Model.h"
 #include<vector>
 using namespace BCE::Base;
 using namespace BCE::Lights;
@@ -20,6 +21,8 @@ private:
 	Camera camera;
 	CubeModel *cube;
 	PlaneModel* plane;
+	Model *enemy;
+
 public:
 	Menu();
 	virtual ~Menu();

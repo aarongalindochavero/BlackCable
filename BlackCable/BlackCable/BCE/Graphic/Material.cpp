@@ -1,5 +1,4 @@
 #include "Material.h"
-#include "../Base/ShaderManager.h"
 
 namespace BCE
 {
@@ -20,7 +19,6 @@ namespace BCE
 
 		void Material::UseMaterial(GLuint specularIntensityLocation, GLuint shininessLocation)
 		{
-
 			glUniform1f(specularIntensityLocation, specularIntensity);
 			glUniform1f(shininessLocation, shininess);
 		}

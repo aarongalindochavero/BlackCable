@@ -44,9 +44,6 @@ namespace BCE
 			texture->UseTexture(GL_TEXTURE0);
 			textureNormal->UseTexture(GL_TEXTURE1);
 			meshList[0]->RenderMesh();
-			glBindTexture(GL_TEXTURE_2D, 0);
-			//glBindTexture(GL_TEXTURE_2D, 1);
-			//glUseProgram(0);
 		}
 
 		void PlaneModel::LoadMesh()

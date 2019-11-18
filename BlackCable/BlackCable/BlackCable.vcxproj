@@ -22,13 +22,13 @@
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{AAC58711-E8E4-4C7D-9D60-4E1B9A45D84D}</ProjectGuid>
     <RootNamespace>BlackCable</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -76,12 +76,12 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>..\ExternalLibs\glfw-3.3.bin.WIN32\include;..\ExternalLibs\glew-2.1.0\include;..\ExternalLibs\glm\glm;..\ExternalLibs\std_image\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\ExternalLibs\glfw-3.3.bin.WIN32\include;..\ExternalLibs\glew-2.1.0\include;..\ExternalLibs\glm\glm;..\ExternalLibs\std_image\include;D:\Dev2019\BlackCable\BlackCable\ExternalLibs\Assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <AdditionalLibraryDirectories>..\ExternalLibs\glfw-3.3.bin.WIN32\lib-vc2019;..\ExternalLibs\glew-2.1.0\lib\Release\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;glew32.lib;Opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\ExternalLibs\glfw-3.3.bin.WIN32\lib-vc2019;..\ExternalLibs\glew-2.1.0\lib\Release\Win32;D:\Dev2019\BlackCable\BlackCable\ExternalLibs\Assimp\lib\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib;glew32.lib;Opengl32.lib;assimp-vc141-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -135,6 +135,7 @@
     <ClCompile Include="BCE\Graphic\CubeModel.cpp" />
     <ClCompile Include="BCE\Graphic\Material.cpp" />
     <ClCompile Include="BCE\Graphic\Mesh.cpp" />
+    <ClCompile Include="BCE\Graphic\BaseModel.cpp" />
     <ClCompile Include="BCE\Graphic\Model.cpp" />
     <ClCompile Include="BCE\Graphic\PlaneModel.cpp" />
     <ClCompile Include="BCE\Graphic\Shader.cpp" />
@@ -155,6 +156,7 @@
     <ClInclude Include="BCE\Graphic\CubeModel.h" />
     <ClInclude Include="BCE\Graphic\Material.h" />
     <ClInclude Include="BCE\Graphic\Mesh.h" />
+    <ClInclude Include="BCE\Graphic\BaseModel.h" />
     <ClInclude Include="BCE\Graphic\Model.h" />
     <ClInclude Include="BCE\Graphic\PlaneModel.h" />
     <ClInclude Include="BCE\Graphic\Shader.h" />

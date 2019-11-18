@@ -4,7 +4,7 @@
 #include "Mesh.h"
 #include "Camera.h"
 #include<vector>
-#include"Model.h"
+#include"BaseModel.h"
 #include"Texture.h"
 #include "Material.h"
 #include "../Lights/Light.h"
@@ -14,7 +14,7 @@ namespace BCE
 	namespace Graphics
 	{
 
-		class PlaneModel : Model
+		class PlaneModel : BaseModel
 		{
 		public:
 			PlaneModel();

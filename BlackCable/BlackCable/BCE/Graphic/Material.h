@@ -1,11 +1,11 @@
 #pragma once
 
 #include <GL\glew.h>
+
 namespace BCE
 {
 	namespace Graphics
 	{
-
 		class Material
 		{
 		public:

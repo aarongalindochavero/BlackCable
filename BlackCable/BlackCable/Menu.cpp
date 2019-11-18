@@ -27,6 +27,10 @@ void Menu::Init()
 	cube->Init();
 	plane = new PlaneModel();
 	plane->Init();
+	enemy = new Model();
+	enemy->LoadModel("Assets/Models/pina_pose.obj");
+	enemy->AddTexture("pina.png");
+	enemy->AddTexture("pina_normal.png");
 }
 
 void Menu::Draw()
@@ -35,6 +39,7 @@ void Menu::Draw()
 	shaderManager->draw();
 	cube->Draw();
 	plane->Draw();
+	enemy->RenderModel();
 	platform->RenderPresent();
 }
 

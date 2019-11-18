@@ -61,9 +61,6 @@
     <ClCompile Include="BCE\Graphic\Mesh.cpp">
       <Filter>BCE\Graphic</Filter>
     </ClCompile>
-    <ClCompile Include="BCE\Graphic\Model.cpp">
-      <Filter>BCE\Graphic</Filter>
-    </ClCompile>
     <ClCompile Include="BCE\Graphic\PlaneModel.cpp">
       <Filter>BCE\Graphic</Filter>
     </ClCompile>
@@ -81,6 +78,12 @@
     </ClCompile>
     <ClCompile Include="BCE\Lights\PointLight.cpp">
       <Filter>BCE\Lights</Filter>
+    </ClCompile>
+    <ClCompile Include="BCE\Graphic\BaseModel.cpp">
+      <Filter>BCE\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="BCE\Graphic\Model.cpp">
+      <Filter>BCE\Graphic</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -114,9 +117,6 @@
     <ClInclude Include="BCE\Graphic\Mesh.h">
       <Filter>BCE\Graphic</Filter>
     </ClInclude>
-    <ClInclude Include="BCE\Graphic\Model.h">
-      <Filter>BCE\Graphic</Filter>
-    </ClInclude>
     <ClInclude Include="BCE\Graphic\PlaneModel.h">
       <Filter>BCE\Graphic</Filter>
     </ClInclude>
@@ -134,6 +134,12 @@
     </ClInclude>
     <ClInclude Include="BCE\Lights\PointLight.h">
       <Filter>BCE\Lights</Filter>
+    </ClInclude>
+    <ClInclude Include="BCE\Graphic\BaseModel.h">
+      <Filter>BCE\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="BCE\Graphic\Model.h">
+      <Filter>BCE\Graphic</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
