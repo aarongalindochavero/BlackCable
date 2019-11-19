@@ -41,7 +41,7 @@ namespace BCE
 				ShaderManager::getPtr()->GetShininessLocation());
 			texture->UseTexture(GL_TEXTURE0);
 			textureNormal->UseTexture(GL_TEXTURE1);
-
+			 
 			meshList[0]->RenderMesh();
 		}
 

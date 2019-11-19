@@ -54,7 +54,7 @@ namespace BCE
 
 
 			mainLight = DirectionalLight(0.5f, 0.5f, 0.5f,
-				0.01f, 0.01f,
+				1.01f, 1.01f,
 				0.0f, 0.0f, -1.0f);
 
 			unsigned int pointLightCount = 0;
@@ -75,7 +75,7 @@ namespace BCE
 		void ShaderManager::initShader(Camera* camera)
 		{
 			this->camera = camera;
-			projection = glm::perspective(45.0f, (float)Platform::GetPtr()->GetWidth() / Platform::GetPtr()->GetHeight(), 0.1f, 100.0f);
+			projection = glm::perspective(45.0f, (float)Platform::GetPtr()->GetWidth() / Platform::GetPtr()->GetHeight(), 0.1f, 1000.0f);
 			LoadShaders();
 			shaderList[0].UseShader();
 			uniformModel = shaderList[0].GetModelLocation();
