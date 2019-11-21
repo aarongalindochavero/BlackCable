@@ -28,21 +28,26 @@ namespace BCE
 			textureNormal->LoadTexture();
 
 			material = new Material(1, 1);
+			transform = new Transform(); //Adidier regresa y arregla esto
 		}
 
 		void PlaneModel::Draw()
 		{
 			GLuint uniformModel = 0;
 			uniformModel = ShaderManager::getPtr()->GetModelLocation();
+
 			glm::mat4 model(1);
-			transform.SetTranslation(0.0f, -2.5f, 0.0f);
-			transform.SetScale(14.0f, 14.0f, 14.0f);
-			//transform.SetRotation(0.0f, 1.5f, 0.0f);
-			glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(transform.GetTransform()));
+			if (transform != nullptr)
+			{
+				transform->SetTranslation(0.0f, -2.5f, 0.0f);
+				transform->SetScale(14.0f, 14.0f, 14.0f);
+				//transform.SetRotation(0.0f, 1.5f, 0.0f);
+				glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(transform->GetTransform()));
+			}
 			material->UseMaterial(ShaderManager::getPtr()->GetSpecularIntensityLocation(),
 				ShaderManager::getPtr()->GetShininessLocation());
-			texture->UseTexture(GL_TEXTURE1);
-			textureNormal->UseTexture(GL_TEXTURE2);
+			texture->UseTexture(GL_TEXTURE0);
+			textureNormal->UseTexture(GL_TEXTURE1);
 			meshList[0]->RenderMesh();
 		}
 

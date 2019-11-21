@@ -61,8 +61,6 @@ namespace BCE
 			glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(camera->calculateViewMatrix()));
 			glUniform3f(uniformEyePosition, camera->getCameraPosition().x, camera->getCameraPosition().y, camera->getCameraPosition().z);
 
-
-
 			mainLight = DirectionalLight(0.5f, 0.5f, 0.5f,
 				1.01f, 1.01f,
 				0.0f, 0.0f, -1.0f);

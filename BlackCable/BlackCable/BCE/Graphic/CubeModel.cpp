@@ -33,16 +33,19 @@ namespace BCE
 			GLuint uniformModel = 0;
 			uniformModel = ShaderManager::getPtr()->GetModelLocation();
 			angle += 0.0001f;
-			transform.SetTranslation(0.0f, 0.0f, -2.5f);
-			transform.SetScale(1.0f, 1.0f, 1.0f);
-			transform.SetRotation(0, angle, 0);
-			glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(transform.GetTransform()));
+			if (transform != nullptr)
+			{
+				transform->SetTranslation(0.0f, 0.0f, -2.5f);
+				transform->SetScale(1.0f, 1.0f, 1.0f);
+				transform->SetRotation(0, angle, 0);
+				glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(transform->GetTransform()));
+			}
 			material->UseMaterial(ShaderManager::getPtr()->GetSpecularIntensityLocation(),
 				ShaderManager::getPtr()->GetShininessLocation());
-			texture->UseTexture(GL_TEXTURE1);
-			textureNormal->UseTexture(GL_TEXTURE2);
+			texture->UseTexture(GL_TEXTURE0);
+			textureNormal->UseTexture(GL_TEXTURE1);
 			 
-			meshList[0]->RenderMesh();
+		//	meshList[0]->RenderMesh();
 		}
 
 		void CubeModel::LoadMesh()

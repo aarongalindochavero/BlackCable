@@ -31,9 +31,6 @@
     <ClCompile Include="main.cpp">
       <Filter>Game</Filter>
     </ClCompile>
-    <ClCompile Include="Menu.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
     <ClCompile Include="BCE\Base\GameState.cpp">
       <Filter>BCE\Base</Filter>
     </ClCompile>
@@ -88,11 +85,14 @@
     <ClCompile Include="BCE\Graphic\Skybox.cpp">
       <Filter>BCE\Graphic</Filter>
     </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Menu.h">
-      <Filter>Game</Filter>
-    </ClInclude>
     <ClInclude Include="BCE\Base\GameState.h">
       <Filter>BCE\Base</Filter>
     </ClInclude>
@@ -146,6 +146,12 @@
     </ClInclude>
     <ClInclude Include="BCE\Graphic\Skybox.h">
       <Filter>BCE\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

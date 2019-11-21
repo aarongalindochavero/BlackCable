@@ -148,7 +148,8 @@
     <ClCompile Include="BCE\Lights\Light.cpp" />
     <ClCompile Include="BCE\Lights\PointLight.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BCE\Base\GameState.h" />
@@ -169,7 +170,8 @@
     <ClInclude Include="BCE\Lights\DirectionalLight.h" />
     <ClInclude Include="BCE\Lights\Light.h" />
     <ClInclude Include="BCE\Lights\PointLight.h" />
-    <ClInclude Include="Menu.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="Player.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Shaders\Menu\gouraud-shader.frag" />

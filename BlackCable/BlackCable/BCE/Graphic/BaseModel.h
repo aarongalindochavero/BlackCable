@@ -15,12 +15,14 @@ namespace BCE
 		class BaseModel
 		{
 		public:
+			BaseModel();
 			virtual void Init() = 0;
 			virtual void Draw() = 0;
+			void SetTransform(Transform* transform);
 		protected:
 			virtual void LoadMesh() = 0;
 			std::vector<Mesh*> meshList;
-			Transform transform;
+			Transform *transform;
 
 			void calcAverageNormals(unsigned int* indices, unsigned int indiceCount, GLfloat* vertices, unsigned int verticeCount,
 				unsigned int vLength, unsigned int normalOffset)

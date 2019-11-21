@@ -8,13 +8,28 @@ namespace BCE
 		{
 		}
 
-		void Model::RenderModel()
+		void Model::Init()
 		{
+
+		}
+
+		void Model::LoadMesh()
+		{
+
+		}
+
+		void Model::Draw()
+		{
+			GLuint uniformModel = 0;
+			uniformModel = ShaderManager::getPtr()->GetModelLocation();
+			glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(transform->GetTransform()));
+
+
 			for (size_t i = 0; i < meshList.size(); i++)
 			{
 				for (size_t j = 0; j < textureList.size(); j++)
 				{
-					textureList[j]->UseTexture(GL_TEXTURE1+j);
+					textureList[j]->UseTexture(GL_TEXTURE0+j);
 				}
 				meshList[i]->RenderMesh();
 			}
