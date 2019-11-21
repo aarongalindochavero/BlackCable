@@ -31,15 +31,28 @@ void Menu::Init()
 	enemy->LoadModel("Assets/Models/pina_pose.obj");
 	enemy->AddTexture("pina.png");
 	enemy->AddTexture("pina_normal.png");
+
+	std::vector<std::string> skyboxFaces;
+	skyboxFaces.push_back("Assets/Textures/Skybox/cupertin-lake_rt.tga");
+	skyboxFaces.push_back("Assets/Textures/Skybox/cupertin-lake_lf.tga");
+	skyboxFaces.push_back("Assets/Textures/Skybox/cupertin-lake_up.tga");
+	skyboxFaces.push_back("Assets/Textures/Skybox/cupertin-lake_dn.tga");
+	skyboxFaces.push_back("Assets/Textures/Skybox/cupertin-lake_bk.tga");
+	skyboxFaces.push_back("Assets/Textures/Skybox/cupertin-lake_ft.tga");
+
+	skybox = Skybox(skyboxFaces);
 }
 
 void Menu::Draw()
 {
 	platform->RenderClear();
+	
+	skybox.Draw(shaderManager->GetViewMatrix(), shaderManager->GetProjectionMatrix());
 	shaderManager->draw();
 	cube->Draw();
 	plane->Draw();
 	enemy->RenderModel();
+	
 	platform->RenderPresent();
 }
 
@@ -54,7 +67,6 @@ bool Menu::MouseInput(int x, int y, bool leftbutton)
 bool Menu::Input(std::map<int, bool> keys)
 {
 	camera.keyControl(keys, platform->GetDeltaTime());
-	//std::cout<<camera.getCameraPosition().x<<"**" << camera.getCameraPosition().y << "**" << camera.getCameraPosition().z<<std::endl;
 	return false;
 }
 

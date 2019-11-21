@@ -8,6 +8,8 @@
 #include "BCE/Graphic/PlaneModel.h"
 #include "BCE/Base/ShaderManager.h"
 #include "BCE/Graphic/Model.h"
+#include "BCE/Graphic/Skybox.h"
+
 #include<vector>
 using namespace BCE::Base;
 using namespace BCE::Lights;
@@ -22,6 +24,8 @@ private:
 	CubeModel *cube;
 	PlaneModel* plane;
 	Model *enemy;
+	Skybox skybox;
+
 
 public:
 	Menu();

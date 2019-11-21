@@ -1,4 +1,8 @@
-#pragma once
+
+#ifndef  TEXTURE_H
+#define  TEXTURE_H
+
+
 #define STB_IMAGE_IMPLEMENTATION
 #include <GL\glew.h>
 #include <string>
@@ -15,7 +19,7 @@ namespace BCE
 			Texture(std::string fileLoc);
 			bool LoadTexture();
 			bool LoadTextureA();
-			void UseTexture(unsigned int i = 0);
+			void UseTexture(unsigned int i = 1);
 			void ClearTexture();
 			~Texture();
 		private:
@@ -26,3 +30,5 @@ namespace BCE
 
 	}
 }
+
+#endif // ! TEXTURE_H
