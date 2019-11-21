@@ -27,6 +27,8 @@ namespace BCE
 			GLint GetModelLocation();
 			GLint GetSpecularIntensityLocation();
 			GLint GetShininessLocation();
+			glm::mat4 GetViewMatrix();
+			glm::mat4 GetProjectionMatrix();
 		private:
 			ShaderManager();
 			std::vector<Shader> shaderList;

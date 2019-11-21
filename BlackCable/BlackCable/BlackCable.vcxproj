@@ -142,6 +142,7 @@
     <ClCompile Include="BCE\Graphic\Model.cpp" />
     <ClCompile Include="BCE\Graphic\PlaneModel.cpp" />
     <ClCompile Include="BCE\Graphic\Shader.cpp" />
+    <ClCompile Include="BCE\Graphic\Skybox.cpp" />
     <ClCompile Include="BCE\Graphic\Texture.cpp" />
     <ClCompile Include="BCE\Lights\DirectionalLight.cpp" />
     <ClCompile Include="BCE\Lights\Light.cpp" />
@@ -163,6 +164,7 @@
     <ClInclude Include="BCE\Graphic\Model.h" />
     <ClInclude Include="BCE\Graphic\PlaneModel.h" />
     <ClInclude Include="BCE\Graphic\Shader.h" />
+    <ClInclude Include="BCE\Graphic\Skybox.h" />
     <ClInclude Include="BCE\Graphic\Texture.h" />
     <ClInclude Include="BCE\Lights\DirectionalLight.h" />
     <ClInclude Include="BCE\Lights\Light.h" />
@@ -174,6 +176,8 @@
     <None Include="Assets\Shaders\Menu\gouraud-shader.vert" />
     <None Include="Assets\Shaders\Menu\phong-shader.frag" />
     <None Include="Assets\Shaders\Menu\phong-shader.vert" />
+    <None Include="Assets\Shaders\Menu\skybox.frag" />
+    <None Include="Assets\Shaders\Menu\skybox.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

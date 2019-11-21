@@ -40,6 +40,15 @@ namespace BCE
 		{
 			return uniformSpecularIntensity;
 		}
+		glm::mat4 ShaderManager::GetViewMatrix()
+		{
+			return camera->calculateViewMatrix();
+		}
+
+		glm::mat4 ShaderManager::GetProjectionMatrix()
+		{
+			return projection;
+		}
 
 		GLint ShaderManager::GetShininessLocation()
 		{
@@ -47,6 +56,7 @@ namespace BCE
 		}
 		void ShaderManager::draw()
 		{
+			shaderList[0].UseShader();
 			glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
 			glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(camera->calculateViewMatrix()));
 			glUniform3f(uniformEyePosition, camera->getCameraPosition().x, camera->getCameraPosition().y, camera->getCameraPosition().z);

@@ -85,6 +85,9 @@
     <ClCompile Include="BCE\Graphic\Model.cpp">
       <Filter>BCE\Graphic</Filter>
     </ClCompile>
+    <ClCompile Include="BCE\Graphic\Skybox.cpp">
+      <Filter>BCE\Graphic</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Menu.h">
@@ -141,6 +144,9 @@
     <ClInclude Include="BCE\Graphic\Model.h">
       <Filter>BCE\Graphic</Filter>
     </ClInclude>
+    <ClInclude Include="BCE\Graphic\Skybox.h">
+      <Filter>BCE\Graphic</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Shaders\Menu\gouraud-shader.frag">
@@ -153,6 +159,12 @@
       <Filter>Archivos de recursos\Shaders\Menu</Filter>
     </None>
     <None Include="Assets\Shaders\Menu\phong-shader.vert">
+      <Filter>Archivos de recursos\Shaders\Menu</Filter>
+    </None>
+    <None Include="Assets\Shaders\Menu\skybox.frag">
+      <Filter>Archivos de recursos\Shaders\Menu</Filter>
+    </None>
+    <None Include="Assets\Shaders\Menu\skybox.vert">
       <Filter>Archivos de recursos\Shaders\Menu</Filter>
     </None>
   </ItemGroup>
