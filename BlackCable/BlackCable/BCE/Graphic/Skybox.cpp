@@ -13,12 +13,12 @@ namespace BCE
 		Skybox::Skybox(std::vector<std::string> faceLocations)
 		{
 			// Shader Setup
-			skyShader = new Shader();
-			skyShader->CreateFromFiles("Assets/Shaders/Menu/skybox.vert", "Assets/Shaders/Menu/skybox.frag");
+			shaderManager = ShaderManager::getPtr();
+			shaderManager->LoadShaders("skybox", "Assets/Shaders/Default/skybox.vert", "Assets/Shaders/Default/skybox.frag");
 
 
-			uniformProjection = skyShader->GetProjectionLocation();
-			uniformView = skyShader->GetViewLocation();
+			uniformProjection = shaderManager->GetProjectionLocation();
+			uniformView = shaderManager->GetViewLocation();
 
 
 			// Texture Setup
@@ -88,21 +88,15 @@ namespace BCE
 
 		void Skybox::Draw(glm::mat4 viewMatrix, glm::mat4 projectionMatrix)
 		{
+			shaderManager->Activate("skybox");
+			shaderManager->draw();
 			viewMatrix = glm::mat4(glm::mat3(viewMatrix));
-
 			glDepthMask(GL_FALSE);
-
-			skyShader->UseShader();
-
 			glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projectionMatrix));
 			glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(viewMatrix));
-
 			glActiveTexture(GL_TEXTURE0);
 			glBindTexture(GL_TEXTURE_CUBE_MAP, textureId);
-
-
 			skyMesh->RenderMesh();
-
 			glDepthMask(GL_TRUE);
 		}
 

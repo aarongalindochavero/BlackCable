@@ -25,7 +25,7 @@ void Game::Init()
 	this->platform = Platform::GetPtr();
 	this->manager = GameStateManager::getPtr();
 	shaderManager = ShaderManager::getPtr();
-	
+	shaderManager->LoadShaders("Phong", "Assets/Shaders/Default/phong-shader.vert", "Assets/Shaders/Default/phong-shader.frag");
 	player = new Player(glm::vec3(0, 0, 0));
 	player->Init();
 	cube = new CubeModel();
@@ -51,9 +51,9 @@ void Game::Init()
 void Game::Draw()
 {
 	platform->RenderClear();
-	
-	//skybox.Draw(shaderManager->GetViewMatrix(), shaderManager->GetProjectionMatrix());
-	shaderManager->draw();
+	skybox.Draw(shaderManager->GetViewMatrix(), shaderManager->GetProjectionMatrix());
+	shaderManager->Activate("Phong");
+	shaderManager->draw();	
 	cube->Draw();
 	plane->Draw();
 	//enemy->Draw();

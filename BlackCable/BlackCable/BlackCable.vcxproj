@@ -28,7 +28,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -41,7 +41,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
@@ -174,12 +174,14 @@
     <ClInclude Include="Player.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Shaders\Menu\gouraud-shader.frag" />
-    <None Include="Assets\Shaders\Menu\gouraud-shader.vert" />
-    <None Include="Assets\Shaders\Menu\phong-shader.frag" />
-    <None Include="Assets\Shaders\Menu\phong-shader.vert" />
-    <None Include="Assets\Shaders\Menu\skybox.frag" />
-    <None Include="Assets\Shaders\Menu\skybox.vert" />
+    <None Include="Assets\Shaders\Default\default.frag" />
+    <None Include="Assets\Shaders\Default\default.vert" />
+    <None Include="Assets\Shaders\Default\gouraud-shader.frag" />
+    <None Include="Assets\Shaders\Default\gouraud-shader.vert" />
+    <None Include="Assets\Shaders\Default\phong-shader.frag" />
+    <None Include="Assets\Shaders\Default\phong-shader.vert" />
+    <None Include="Assets\Shaders\Default\skybox.frag" />
+    <None Include="Assets\Shaders\Default\skybox.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

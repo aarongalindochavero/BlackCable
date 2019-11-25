@@ -20,7 +20,6 @@ namespace BCE
 		void CubeModel::Init()
 		{
 			LoadMesh();
-			ShaderManager::getPtr()->LoadShaders();
 			texture = new Texture("Assets/Textures/brick.png");
 			texture->LoadTexture();
 			textureNormal = new Texture("Assets/Textures/bricknormal.png");
@@ -42,8 +41,8 @@ namespace BCE
 			}
 			material->UseMaterial(ShaderManager::getPtr()->GetSpecularIntensityLocation(),
 				ShaderManager::getPtr()->GetShininessLocation());
-			texture->UseTexture(GL_TEXTURE0);
-			textureNormal->UseTexture(GL_TEXTURE1);
+			texture->UseTexture(GL_TEXTURE1);
+			textureNormal->UseTexture(GL_TEXTURE2);
 			 
 		//	meshList[0]->RenderMesh();
 		}

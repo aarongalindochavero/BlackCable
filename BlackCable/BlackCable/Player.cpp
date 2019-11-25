@@ -12,9 +12,9 @@ Player::Player(glm::vec3 position)
 void Player::Init()
 {
 	weapon = new Model();
-	weapon->LoadModel("Assets/Models/Weapon.obj");
-	weapon->AddTexture("Weapon_UV.png");
-	weapon->AddTexture("Weapon_Normal.png");
+	weapon->LoadModel("Assets/Models/pina_pose.obj");
+	weapon->AddTexture("pina.png");
+	weapon->AddTexture("pina_normal.png");
 }
 
 void Player::MouseInput(int x, int y, bool leftbutton)
@@ -30,9 +30,9 @@ void Player::Input(const std::map<int, bool> &keys)
 void Player::Draw()
 {
 	auto position = camera.getCameraPosition();
-	transform.SetTranslation(position.x, position.y, position.z+0.1);
-	transform.SetScale(0.1f, 0.1f, 0.11f);
-	transform.SetRotation(0, 1, 0);
+	//transform.SetTranslation(position.x, position.y, position.z+0.1);
+	transform.SetScale(1.1f, 1.1f, 1.11f);
+	//transform.SetRotation(0, 1, 0);
 	weapon->SetTransform(&transform);
 	weapon->Draw();
 }

@@ -3,23 +3,19 @@
 
 #include <vector>
 #include <string>
-
 #include <GL\glew.h>
-
 #include <glm.hpp>
 #include <gtc\matrix_transform.hpp>
 #include <gtc\type_ptr.hpp>
-
-
-
 #include "Mesh.h"
 #include "Shader.h"
+#include "../Base/ShaderManager.h"
 
 namespace BCE
 {
 	namespace Graphics
 	{
-
+		using namespace Base;
 
 		class Skybox
 		{
@@ -34,10 +30,9 @@ namespace BCE
 
 		private:
 			Mesh* skyMesh;
-			Shader* skyShader;
-
 			GLuint textureId;
 			GLuint uniformProjection, uniformView;
+			ShaderManager *shaderManager;
 		};
 
 	}
