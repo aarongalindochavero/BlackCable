@@ -25,7 +25,8 @@ void Game::Init()
 	this->platform = Platform::GetPtr();
 	this->manager = GameStateManager::getPtr();
 	shaderManager = ShaderManager::getPtr();
-	shaderManager->LoadShaders("Phong", "Assets/Shaders/Default/phong-shader.vert", "Assets/Shaders/Default/phong-shader.frag");
+	shaderManager->LoadShaders("phong", "Assets/Shaders/Default/phong-shader.vert", "Assets/Shaders/Default/phong-shader.frag");
+	shaderManager->LoadShaders("gouraud", "Assets/Shaders/Default/gouraud-shader.vert", "Assets/Shaders/Default/gouraud-shader.frag");
 	player = new Player(glm::vec3(0, 0, 0));
 	player->Init();
 	cube = new CubeModel();
@@ -44,7 +45,6 @@ void Game::Init()
 	skyboxFaces.push_back("Assets/Textures/Skybox/cupertin-lake_dn.tga");
 	skyboxFaces.push_back("Assets/Textures/Skybox/cupertin-lake_bk.tga");
 	skyboxFaces.push_back("Assets/Textures/Skybox/cupertin-lake_ft.tga");
-
 	skybox = Skybox(skyboxFaces);
 }
 
@@ -52,9 +52,13 @@ void Game::Draw()
 {
 	platform->RenderClear();
 	skybox.Draw(shaderManager->GetViewMatrix(), shaderManager->GetProjectionMatrix());
-	shaderManager->Activate("Phong");
-	shaderManager->draw();	
+	
+	shaderManager->Activate("gouraud");
+	shaderManager->draw();
 	cube->Draw();
+	
+	shaderManager->Activate("phong");
+	shaderManager->draw();
 	plane->Draw();
 	//enemy->Draw();
 	player->Draw();

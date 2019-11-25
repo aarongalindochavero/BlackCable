@@ -93,7 +93,7 @@ namespace BCE
 			}
 
 			Mesh* newMesh = new Mesh();
-			newMesh->CreateMesh(&vertices[0], &indices[0], vertices.size(), indices.size());
+			newMesh->CreateMesh(&vertices[0], &indices[0], vertices.size(), indices.size(),11);
 			meshList.push_back(newMesh);
 			meshToTex.push_back(mesh->mMaterialIndex);
 		}

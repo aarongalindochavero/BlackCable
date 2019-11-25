@@ -3,7 +3,7 @@
 Player::Player(glm::vec3 position)
 {
 	this->platform = Platform::GetPtr();
-	camera = Camera(glm::vec3(-1.4f, 0.0f, -1.6f), glm::vec3(0.0f, 1.0f, 0.0f), 0.0f, 0.0f, 55.0f, 0.1f);
+	camera = Camera(glm::vec3(-1.4f, 10.0f, -1.6f), glm::vec3(0.0f, 1.0f, 0.0f), 0.0f, 0.0f, 55.0f, 0.1f);
 	ShaderManager *shaderManager = ShaderManager::getPtr();
 	shaderManager->initShader(&camera);
 

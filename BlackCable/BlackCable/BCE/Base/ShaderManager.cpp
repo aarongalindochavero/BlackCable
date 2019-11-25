@@ -75,13 +75,13 @@ namespace BCE
 				glUniform3f(uniformEyePosition, camera->getCameraPosition().x, camera->getCameraPosition().y, camera->getCameraPosition().z);
 
 				mainLight = DirectionalLight(0.5f, 0.5f, 0.5f,
-					1.01f, 1.01f,
+					.3f, .3f,
 					0.0f, 0.0f, -1.0f);
 
 				unsigned int pointLightCount = 0;
-				pointLights[0] = PointLight(1.0f, 1.0f, 1.0f,
-					.2f, .2f,
-					13.0f, 0.0f, 0.0f,
+				pointLights[0] = PointLight(0.0f, 1.0f, 0.0f,
+					10.2f, 10.2f,
+					30.0f, 3.0f, 0.0f,
 					0.3f, 0.2f, 0.1f);
 				pointLightCount++;
 				pointLights[1] = PointLight(1.0f, 1.0f, 1.0f,

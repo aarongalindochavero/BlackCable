@@ -11,7 +11,7 @@ namespace BCE
 			indexCount = 0;
 		}
 
-		void Mesh::CreateMesh(GLfloat *vertices, unsigned int *indices, unsigned int numOfVertices, unsigned int numOfIndices)
+		void Mesh::CreateMesh(GLfloat *vertices, unsigned int *indices, unsigned int numOfVertices, unsigned int numOfIndices, unsigned int vSize)
 		{
 			indexCount = numOfIndices;
 
@@ -26,15 +26,20 @@ namespace BCE
 			glBindBuffer(GL_ARRAY_BUFFER, VBO);
 			glBufferData(GL_ARRAY_BUFFER, sizeof(vertices[0]) * numOfVertices, vertices, GL_STATIC_DRAW);
 
-			glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(vertices[0]) * 11, 0);
+			glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(vertices[0]) * vSize, 0);
 			glEnableVertexAttribArray(0);
-			glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(vertices[0]) * 11, (void*)(sizeof(vertices[0]) * 3));
-			glEnableVertexAttribArray(1);
-			glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, sizeof(vertices[0]) * 11, (void*)(sizeof(vertices[0]) * 5));
-			glEnableVertexAttribArray(2);
-			glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, sizeof(vertices[0]) * 11, (void*)(sizeof(vertices[0]) * 8));
-			glEnableVertexAttribArray(3);
-
+			if (vSize > 3) {
+				glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(vertices[0]) * vSize, (void*)(sizeof(vertices[0]) * 3));
+				glEnableVertexAttribArray(1);
+			}
+			if (vSize > 5) {
+				glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, sizeof(vertices[0]) * vSize, (void*)(sizeof(vertices[0]) * 5));
+				glEnableVertexAttribArray(2);
+			}
+			if (vSize > 8) {
+				glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, sizeof(vertices[0]) * vSize, (void*)(sizeof(vertices[0]) * 8));
+				glEnableVertexAttribArray(3);
+			}
 
 			glBindBuffer(GL_ARRAY_BUFFER, 0);
 			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);

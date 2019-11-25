@@ -71,19 +71,19 @@ namespace BCE
 			};
 
 			float skyboxVertices[] = {
-				-1.0f, 1.0f, -1.0f,		0.0f, 0.0f,		0.0f, 0.0f, 0.0f,0.0f, 0.0f, 0.0f,
-				-1.0f, -1.0f, -1.0f,	0.0f, 0.0f,		0.0f, 0.0f, 0.0f,0.0f, 0.0f, 0.0f,
-				1.0f, 1.0f, -1.0f,		0.0f, 0.0f,		0.0f, 0.0f, 0.0f,0.0f, 0.0f, 0.0f,
-				1.0f, -1.0f, -1.0f,		0.0f, 0.0f,		0.0f, 0.0f, 0.0f,0.0f, 0.0f, 0.0f,
+				-1.0f, 1.0f, -1.0f,		
+				-1.0f, -1.0f, -1.0f,	
+				1.0f, 1.0f, -1.0f,		
+				1.0f, -1.0f, -1.0f,		
 
-				-1.0f, 1.0f, 1.0f,		0.0f, 0.0f,		0.0f, 0.0f, 0.0f,0.0f, 0.0f, 0.0f,
-				1.0f, 1.0f, 1.0f,		0.0f, 0.0f,		0.0f, 0.0f, 0.0f,0.0f, 0.0f, 0.0f,
-				-1.0f, -1.0f, 1.0f,		0.0f, 0.0f,		0.0f, 0.0f, 0.0f,0.0f, 0.0f, 0.0f,
-				1.0f, -1.0f, 1.0f,		0.0f, 0.0f,		0.0f, 0.0f, 0.0f,0.0f, 0.0f, 0.0f
+				-1.0f, 1.0f, 1.0f,	
+				1.0f, 1.0f, 1.0f,	
+				-1.0f, -1.0f, 1.0f,	
+				1.0f, -1.0f, 1.0f,	
 			};
 
 			skyMesh = new Mesh();
-			skyMesh->CreateMesh(skyboxVertices, skyboxIndices, 88, 36);
+			skyMesh->CreateMesh(skyboxVertices, skyboxIndices, 24, 36,3);
 		}
 
 		void Skybox::Draw(glm::mat4 viewMatrix, glm::mat4 projectionMatrix)

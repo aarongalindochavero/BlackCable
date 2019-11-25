@@ -75,7 +75,7 @@ namespace BCE
 			calcAverageNormals(indices, 18, vertices, 88, 11, 5);
 
 			Mesh* obj1 = new Mesh();
-			obj1->CreateMesh(vertices, indices, 88, 18);
+			obj1->CreateMesh(vertices, indices, 88, 18, 11);
 			meshList.push_back(obj1);
 		}
 	}
