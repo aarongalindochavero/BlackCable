@@ -52,6 +52,12 @@ namespace BCE
 			return position;
 		}
 
+
+		glm::vec3 Camera::getCameraRotation()
+		{
+			return front;
+		}
+
 		void Camera::mouseControl(GLfloat xChange, GLfloat yChange)
 		{
 			if (firstMove) {
@@ -93,7 +99,7 @@ namespace BCE
 		void Camera::update()
 		{
 			front.x = cos(glm::radians(yaw)) * cos(glm::radians(pitch));
-			front.y = sin(glm::radians(pitch));
+			front.y = 0;//sin(glm::radians(pitch));
 			front.z = sin(glm::radians(yaw)) * cos(glm::radians(pitch));
 			front = glm::normalize(front);
 

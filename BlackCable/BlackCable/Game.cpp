@@ -60,7 +60,10 @@ void Game::Draw()
 	shaderManager->Activate("phong");
 	shaderManager->draw();
 	plane->Draw();
-	//enemy->Draw();
+	
+
+	shaderManager->Activate("phong");
+	shaderManager->draw();
 	player->Draw();
 	platform->RenderPresent();
 }
