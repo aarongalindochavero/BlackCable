@@ -65,6 +65,11 @@ void Game::Draw()
 	shaderManager->Activate("phong");
 	shaderManager->draw();
 	player->Draw();
+
+	for (auto enemy : enemyPool)
+	{
+		enemy->Draw();
+	}
 	platform->RenderPresent();
 }
 
@@ -83,7 +88,30 @@ bool Game::Input(std::map<int, bool> keys)
 
 void Game::Update()
 {
+	if (rand() % 100 < 1)
+	{
+		int dir = -1;
+		if (rand() % 100 > 50)
+			dir = 1;
+		auto enemy = new EnemyT4(glm::vec3(rand()%300* dir, 10, rand() % 300* dir), player);
+		enemy->Init();
+		enemyPool.push_back(enemy);
+	}
 
+	if (rand() % 100 < 1)
+	{
+		int dir = -1;
+		if (rand() % 100 > 50)
+			dir = 1;
+		auto enemy = new EnemyT5(glm::vec3(rand() % 300 * dir, 10, rand() % 300 * dir), player);
+		enemy->Init();
+		enemyPool.push_back(enemy);
+	}
+
+	for (auto enemy : enemyPool)
+	{
+		enemy->Update();
+	}
 }
 
 void Game::Close()
