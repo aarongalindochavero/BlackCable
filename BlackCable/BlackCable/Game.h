@@ -32,7 +32,9 @@ private:
 	Model *enemy;
 	Text text;
 	Skybox skybox;
-	std::list<Enemy> enemyPool;
+	std::list<Enemy *> enemyPool;
+
+
 public:
 	Game();
 	virtual ~Game();
