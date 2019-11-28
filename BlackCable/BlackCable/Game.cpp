@@ -63,11 +63,18 @@ void Game::Draw()
 	shaderManager->Activate("phong");
 	shaderManager->draw();
 	plane->Draw();
-	//enemy->Draw();
+	
+
+	shaderManager->Activate("phong");
+	shaderManager->draw();
 	player->Draw();
 
 	//text.RenderText("This is sample text", 25.0f, 25.0f, 1.0f, glm::vec3(0.5, 0.8f, 0.2f));
 
+	for (auto enemy : enemyPool)
+	{
+		enemy->Draw();
+	}
 	platform->RenderPresent();
 }
 
@@ -86,7 +93,30 @@ bool Game::Input(std::map<int, bool> keys)
 
 void Game::Update()
 {
+	if (rand() % 100 < 1)
+	{
+		int dir = -1;
+		if (rand() % 100 > 50)
+			dir = 1;
+		auto enemy = new EnemyT4(glm::vec3(rand()%300* dir, 10, rand() % 300* dir), player);
+		enemy->Init();
+		enemyPool.push_back(enemy);
+	}
 
+	if (rand() % 100 < 1)
+	{
+		int dir = -1;
+		if (rand() % 100 > 50)
+			dir = 1;
+		auto enemy = new EnemyT5(glm::vec3(rand() % 300 * dir, 10, rand() % 300 * dir), player);
+		enemy->Init();
+		enemyPool.push_back(enemy);
+	}
+
+	for (auto enemy : enemyPool)
+	{
+		enemy->Update();
+	}
 }
 
 void Game::Close()

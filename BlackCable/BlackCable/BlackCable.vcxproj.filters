@@ -94,6 +94,12 @@
     <ClCompile Include="BCE\Graphic\Text.cpp">
       <Filter>BCE\Graphic</Filter>
     </ClCompile>
+    <ClCompile Include="EnemyT4.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyT5.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BCE\Base\GameState.h">
@@ -158,6 +164,15 @@
     </ClInclude>
     <ClInclude Include="BCE\Graphic\Text.h">
       <Filter>BCE\Graphic</Filter>
+    </ClCompile>
+    <ClInclude Include="EnemyT4.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyT5.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
