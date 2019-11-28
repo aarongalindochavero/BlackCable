@@ -10,6 +10,10 @@
 #include "BCE/Graphic/Model.h"
 #include "BCE/Graphic/Skybox.h"
 #include "Player.h"
+#include "EnemyT4.h"
+#include "EnemyT5.h"
+#include "Enemy.h"
+#include <list>
 
 #include<vector>
 using namespace BCE::Base;
@@ -26,6 +30,7 @@ private:
 	PlaneModel* plane;
 	Model *enemy;
 	Skybox skybox;
+	std::list<Enemy> enemyPool;
 
 
 public:
