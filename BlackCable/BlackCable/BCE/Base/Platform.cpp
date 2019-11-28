@@ -120,7 +120,7 @@ namespace BCE
 		{
 			if (ptr == nullptr)
 			{
-				ptr = new Platform("GAME", 640, 480);
+				ptr = new Platform("THE GAME", 1920, 1080);
 			}
 			else
 			{

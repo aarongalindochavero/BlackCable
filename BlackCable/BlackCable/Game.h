@@ -9,6 +9,7 @@
 #include "BCE/Base/ShaderManager.h"
 #include "BCE/Graphic/Model.h"
 #include "BCE/Graphic/Skybox.h"
+#include "BCE/Graphic/Text.h"
 #include "Player.h"
 #include "EnemyT4.h"
 #include "EnemyT5.h"
@@ -29,6 +30,7 @@ private:
 	CubeModel *cube;
 	PlaneModel* plane;
 	Model *enemy;
+	Text text;
 	Skybox skybox;
 	std::list<Enemy *> enemyPool;
 

@@ -46,6 +46,9 @@ void Game::Init()
 	skyboxFaces.push_back("Assets/Textures/Skybox/cupertin-lake_bk.tga");
 	skyboxFaces.push_back("Assets/Textures/Skybox/cupertin-lake_ft.tga");
 	skybox = Skybox(skyboxFaces);
+
+	//text = Text();
+	text.LoadFont("Assets/Fonts/arial.ttf");
 }
 
 void Game::Draw()
@@ -65,6 +68,8 @@ void Game::Draw()
 	shaderManager->Activate("phong");
 	shaderManager->draw();
 	player->Draw();
+
+	//text.RenderText("This is sample text", 25.0f, 25.0f, 1.0f, glm::vec3(0.5, 0.8f, 0.2f));
 
 	for (auto enemy : enemyPool)
 	{
