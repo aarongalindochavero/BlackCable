@@ -9,20 +9,25 @@
 
 #include "Mesh.h"
 #include "Texture.h"
+#include "../Base/Transform.h"
+#include "../Base/ShaderManager.h"
+#include "BaseModel.h"
+
+using namespace BCE::Base;
 
 namespace BCE
 {
 	namespace Graphics
 	{
-		class Model
+		class Model : public BaseModel
 		{
 		public:
 			Model();
-
-			void LoadModel(const std::string& fileName);
-			void RenderModel();
+			virtual void Init() override;
+			void LoadModel(const std::string& fileName); // Adidier regresa
+			virtual void LoadMesh() override;
+			virtual void Draw() override;
 			void ClearModel();
-
 			~Model();
 			void AddTexture(std::string path);
 		private:
@@ -30,7 +35,6 @@ namespace BCE
 			void LoadNode(aiNode *node, const aiScene *scene);
 			void LoadMesh(aiMesh *mesh, const aiScene *scene);
 			void LoadMaterials(const aiScene *scene);
-
 
 			std::vector<Mesh*> meshList;
 			std::vector<Texture*> textureList;

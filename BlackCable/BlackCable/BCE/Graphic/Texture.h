@@ -19,7 +19,7 @@ namespace BCE
 			Texture(std::string fileLoc);
 			bool LoadTexture();
 			bool LoadTextureA();
-			void UseTexture(unsigned int i = 1);
+			void UseTexture(unsigned int i = 0);
 			void ClearTexture();
 			~Texture();
 		private:

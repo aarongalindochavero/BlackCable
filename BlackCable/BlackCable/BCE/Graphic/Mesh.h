@@ -11,7 +11,7 @@ namespace BCE
 		public:
 			Mesh();
 
-			void CreateMesh(GLfloat *vertices, unsigned int *indices, unsigned int numOfVertices, unsigned int numOfIndices);
+			void CreateMesh(GLfloat *vertices, unsigned int *indices, unsigned int numOfVertices, unsigned int numOfIndices, unsigned int vSize);
 			void RenderMesh();
 			void ClearMesh();
 

@@ -1,5 +1,5 @@
 #pragma once
-#include<vector>
+#include<map>
 #include "../Graphic/Shader.h"
 #include "../Graphic/Camera.h"
 #include <glm.hpp>
@@ -18,20 +18,24 @@ namespace BCE
 		{
 		public:
 
-			void LoadShaders();
-			const char* vShader = "Assets/Shaders/Menu/phong-shader.vert";
-			const char* fShader = "Assets/Shaders/Menu/phong-shader.frag";
+			void LoadShaders(const std::string & name, const std::string & pathV, const std::string & pathF);
+			const char* vShaderDefault = "Assets/Shaders/Default/default.vert";
+			const char* fShaderDefault = "Assets/Shaders/Default/default.frag";
 			static ShaderManager* getPtr();
 			void initShader(Camera* camera);
 			void draw();
 			GLint GetModelLocation();
+			GLint GetViewLocation();
+			GLint GetProjectionLocation();
 			GLint GetSpecularIntensityLocation();
 			GLint GetShininessLocation();
 			glm::mat4 GetViewMatrix();
 			glm::mat4 GetProjectionMatrix();
+			void Activate(const std::string & path);
 		private:
 			ShaderManager();
-			std::vector<Shader> shaderList;
+			std::map<std::string,Shader> shaderList;
+			Shader *currentShader;
 			static ShaderManager* ptr;
 			Camera* camera;
 			glm::mat4 projection;

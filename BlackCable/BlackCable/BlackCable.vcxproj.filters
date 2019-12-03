@@ -14,9 +14,6 @@
     <Filter Include="Archivos de recursos\Shaders">
       <UniqueIdentifier>{4078b757-b253-4da4-9952-76e4371b61a1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Archivos de recursos\Shaders\Menu">
-      <UniqueIdentifier>{896ca5f9-ecf7-4eb0-bfbb-4ef63b01cb23}</UniqueIdentifier>
-    </Filter>
     <Filter Include="BCE\Base">
       <UniqueIdentifier>{002cd6da-8200-457c-8440-dd8b0ec643ab}</UniqueIdentifier>
     </Filter>
@@ -26,12 +23,12 @@
     <Filter Include="BCE\Lights">
       <UniqueIdentifier>{4412ed54-6b79-43a8-8de9-e7b275482844}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de recursos\Shaders\Default">
+      <UniqueIdentifier>{896ca5f9-ecf7-4eb0-bfbb-4ef63b01cb23}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Menu.cpp">
       <Filter>Game</Filter>
     </ClCompile>
     <ClCompile Include="BCE\Base\GameState.cpp">
@@ -88,11 +85,23 @@
     <ClCompile Include="BCE\Graphic\Skybox.cpp">
       <Filter>BCE\Graphic</Filter>
     </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="BCE\Graphic\Text.cpp">
+      <Filter>BCE\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyT4.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyT5.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Menu.h">
-      <Filter>Game</Filter>
-    </ClInclude>
     <ClInclude Include="BCE\Base\GameState.h">
       <Filter>BCE\Base</Filter>
     </ClInclude>
@@ -147,25 +156,55 @@
     <ClInclude Include="BCE\Graphic\Skybox.h">
       <Filter>BCE\Graphic</Filter>
     </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="BCE\Graphic\Text.h">
+      <Filter>BCE\Graphic</Filter>
+    </ClCompile>
+    <ClInclude Include="EnemyT4.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyT5.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Shaders\Menu\gouraud-shader.frag">
-      <Filter>Archivos de recursos\Shaders\Menu</Filter>
+    <None Include="Assets\Shaders\Default\default.frag">
+      <Filter>Archivos de recursos\Shaders\Default</Filter>
     </None>
-    <None Include="Assets\Shaders\Menu\gouraud-shader.vert">
-      <Filter>Archivos de recursos\Shaders\Menu</Filter>
+    <None Include="Assets\Shaders\Default\default.vert">
+      <Filter>Archivos de recursos\Shaders\Default</Filter>
     </None>
-    <None Include="Assets\Shaders\Menu\phong-shader.frag">
-      <Filter>Archivos de recursos\Shaders\Menu</Filter>
+    <None Include="Assets\Shaders\Default\gouraud-shader.frag">
+      <Filter>Archivos de recursos\Shaders\Default</Filter>
     </None>
-    <None Include="Assets\Shaders\Menu\phong-shader.vert">
-      <Filter>Archivos de recursos\Shaders\Menu</Filter>
+    <None Include="Assets\Shaders\Default\gouraud-shader.vert">
+      <Filter>Archivos de recursos\Shaders\Default</Filter>
     </None>
-    <None Include="Assets\Shaders\Menu\skybox.frag">
-      <Filter>Archivos de recursos\Shaders\Menu</Filter>
+    <None Include="Assets\Shaders\Default\phong-shader.frag">
+      <Filter>Archivos de recursos\Shaders\Default</Filter>
     </None>
-    <None Include="Assets\Shaders\Menu\skybox.vert">
-      <Filter>Archivos de recursos\Shaders\Menu</Filter>
+    <None Include="Assets\Shaders\Default\phong-shader.vert">
+      <Filter>Archivos de recursos\Shaders\Default</Filter>
+    </None>
+    <None Include="Assets\Shaders\Default\skybox.frag">
+      <Filter>Archivos de recursos\Shaders\Default</Filter>
+    </None>
+    <None Include="Assets\Shaders\Default\skybox.vert">
+      <Filter>Archivos de recursos\Shaders\Default</Filter>
+    </None>
+    <None Include="Assets\Shaders\Default\Text-Shader.frag">
+      <Filter>Archivos de recursos\Shaders\Default</Filter>
+    </None>
+    <None Include="Assets\Shaders\Default\Text-Shader.vert">
+      <Filter>Archivos de recursos\Shaders\Default</Filter>
     </None>
   </ItemGroup>
 </Project>

@@ -20,7 +20,6 @@ namespace BCE
 		void CubeModel::Init()
 		{
 			LoadMesh();
-			ShaderManager::getPtr()->LoadShaders();
 			texture = new Texture("Assets/Textures/brick.png");
 			texture->LoadTexture();
 			textureNormal = new Texture("Assets/Textures/bricknormal.png");
@@ -33,16 +32,19 @@ namespace BCE
 			GLuint uniformModel = 0;
 			uniformModel = ShaderManager::getPtr()->GetModelLocation();
 			angle += 0.0001f;
-			transform.SetTranslation(0.0f, 0.0f, -2.5f);
-			transform.SetScale(1.0f, 1.0f, 1.0f);
-			transform.SetRotation(0, angle, 0);
-			glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(transform.GetTransform()));
+			if (transform != nullptr)
+			{
+				transform->SetTranslation(0.0f, 0.0f, -2.5f);
+				transform->SetScale(1.0f, 1.0f, 1.0f);
+				transform->SetRotation(0, angle, 0);
+				glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(transform->GetTransform()));
+			}
 			material->UseMaterial(ShaderManager::getPtr()->GetSpecularIntensityLocation(),
 				ShaderManager::getPtr()->GetShininessLocation());
 			texture->UseTexture(GL_TEXTURE1);
 			textureNormal->UseTexture(GL_TEXTURE2);
 			 
-			meshList[0]->RenderMesh();
+		//	meshList[0]->RenderMesh();
 		}
 
 		void CubeModel::LoadMesh()
@@ -73,7 +75,7 @@ namespace BCE
 			calcAverageNormals(indices, 18, vertices, 88, 11, 5);
 
 			Mesh* obj1 = new Mesh();
-			obj1->CreateMesh(vertices, indices, 88, 18);
+			obj1->CreateMesh(vertices, indices, 88, 18, 11);
 			meshList.push_back(obj1);
 		}
 	}
