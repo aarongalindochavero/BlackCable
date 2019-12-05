@@ -11,11 +11,13 @@ Player::Player(glm::vec3 position)
 	offsetY = offset.y;
 }
 
-void Player::Init()
+void Player::Init(std::list<Enemy*> *enemyPool)
 {
+	this->enemyPool = enemyPool;
 	weapon = new Model();
 	weapon->LoadModel("Assets/Models/Weapon.obj");
 	weapon->AddTexture("Weapon_UV.png");
+	spCollider = new SphereCollider(10, camera.getCameraPosition());
 }
 
 void Player::MouseInput(int x, int y, bool leftbutton)
@@ -28,6 +30,21 @@ void Player::Input(const std::map<int, bool>& keys)
 {
 	camera.keyControl(keys, platform->GetDeltaTime());
 }
+
+void Player::Update()
+{
+	spCollider->SetTranslation(camera.getCameraPosition());
+
+	for (auto ene : *enemyPool)
+	{
+		if (spCollider->CheckCollision(ene->GetRadius(), ene->GetTranslation()))
+		{
+			//TRABAJAR
+		}
+	}
+	
+}
+
 void Player::Draw()
 {
 	glm::vec3 position = camera.getCameraPosition();

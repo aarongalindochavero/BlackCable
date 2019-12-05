@@ -29,6 +29,11 @@ namespace BCE
 			_scale.z = z;
 		}
 
+		glm::vec3 Transform::GetTranslation()
+		{
+			return _translation;
+		}
+
 		glm::mat4 Transform::GetTransform()
 		{
 			_model = glm::mat4(1.0);

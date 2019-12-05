@@ -26,6 +26,9 @@
     <Filter Include="Archivos de recursos\Shaders\Default">
       <UniqueIdentifier>{896ca5f9-ecf7-4eb0-bfbb-4ef63b01cb23}</UniqueIdentifier>
     </Filter>
+    <Filter Include="BCE\Physics">
+      <UniqueIdentifier>{ae406361-eaa0-4b80-bcfa-30bd68868b3d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -95,6 +98,13 @@
       <Filter>Game</Filter>
     </ClCompile>
     <ClCompile Include="EnemyT5.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="BCE\Graphic\Text.cpp" />
+    <ClCompile Include="BCE\Physics\SphereCollider.cpp">
+      <Filter>BCE\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
       <Filter>Game</Filter>
     </ClCompile>
   </ItemGroup>
@@ -168,6 +178,10 @@
     <ClInclude Include="Enemy.h">
       <Filter>Game</Filter>
     </ClInclude>
+    <ClInclude Include="BCE\Graphic\Text.h" />
+    <ClInclude Include="BCE\Physics\SphereCollider.h">
+      <Filter>BCE\Physics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Shaders\Default\default.frag">
@@ -194,5 +208,7 @@
     <None Include="Assets\Shaders\Default\skybox.vert">
       <Filter>Archivos de recursos\Shaders\Default</Filter>
     </None>
+    <None Include="Assets\Shaders\Default\Text-Shader.frag" />
+    <None Include="Assets\Shaders\Default\Text-Shader.vert" />
   </ItemGroup>
 </Project>

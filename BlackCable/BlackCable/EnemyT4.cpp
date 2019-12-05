@@ -9,7 +9,7 @@ EnemyT4::EnemyT4(glm::vec3 position, Player *player)
 
 void EnemyT4::Update()
 {
-
+	spCollider->SetTranslation(transform.GetTranslation());
 }
 
 void EnemyT4::Init()
@@ -17,6 +17,7 @@ void EnemyT4::Init()
 	weapon = new Model();
 	weapon->LoadModel("Assets/Models/Enemy1.obj");
 	weapon->AddTexture("Weapon_UV.png");
+	spCollider = new SphereCollider(10, transform.GetTranslation());
 }
 
 void EnemyT4::Draw()

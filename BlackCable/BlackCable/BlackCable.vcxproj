@@ -148,6 +148,8 @@
     <ClCompile Include="BCE\Lights\DirectionalLight.cpp" />
     <ClCompile Include="BCE\Lights\Light.cpp" />
     <ClCompile Include="BCE\Lights\PointLight.cpp" />
+    <ClCompile Include="BCE\Physics\SphereCollider.cpp" />
+    <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyT4.cpp" />
     <ClCompile Include="EnemyT5.cpp" />
     <ClCompile Include="main.cpp" />
@@ -174,6 +176,7 @@
     <ClInclude Include="BCE\Lights\DirectionalLight.h" />
     <ClInclude Include="BCE\Lights\Light.h" />
     <ClInclude Include="BCE\Lights\PointLight.h" />
+    <ClInclude Include="BCE\Physics\SphereCollider.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyT4.h" />
     <ClInclude Include="EnemyT5.h" />
