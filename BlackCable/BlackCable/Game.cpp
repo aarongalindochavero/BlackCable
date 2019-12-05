@@ -28,7 +28,7 @@ void Game::Init()
 	shaderManager->LoadShaders("phong", "Assets/Shaders/Default/phong-shader.vert", "Assets/Shaders/Default/phong-shader.frag");
 	shaderManager->LoadShaders("gouraud", "Assets/Shaders/Default/gouraud-shader.vert", "Assets/Shaders/Default/gouraud-shader.frag");
 	player = new Player(glm::vec3(0, 0, 0));
-	player->Init();
+	player->Init(&enemyPool);
 	cube = new CubeModel();
 	cube->Init();
 	plane = new PlaneModel();
@@ -49,6 +49,8 @@ void Game::Init()
 
 	//text = Text();
 	text.LoadFont("Assets/Fonts/arial.ttf");
+
+	CreateEnemies();
 }
 
 void Game::Draw()
@@ -93,29 +95,39 @@ bool Game::Input(std::map<int, bool> keys)
 
 void Game::Update()
 {
-	if (rand() % 100 < 1)
-	{
-		int dir = -1;
-		if (rand() % 100 > 50)
-			dir = 1;
-		auto enemy = new EnemyT4(glm::vec3(rand()%300* dir, 10, rand() % 300* dir), player);
-		enemy->Init();
-		enemyPool.push_back(enemy);
-	}
 
-	if (rand() % 100 < 1)
-	{
-		int dir = -1;
-		if (rand() % 100 > 50)
-			dir = 1;
-		auto enemy = new EnemyT5(glm::vec3(rand() % 300 * dir, 10, rand() % 300 * dir), player);
-		enemy->Init();
-		enemyPool.push_back(enemy);
-	}
 
 	for (auto enemy : enemyPool)
 	{
 		enemy->Update();
+	}
+	player->Update();
+}
+
+void Game::CreateEnemies()
+{
+
+	while (enemyPool.size() < 10)
+	{
+		if (rand() % 100 < 1)
+		{
+			int dir = -1;
+			if (rand() % 100 > 50)
+				dir = 1;
+			auto enemy = new EnemyT4(glm::vec3(rand() % 300 * dir, 10, rand() % 300 * dir), player);
+			enemy->Init();
+			enemyPool.push_back(enemy);
+		}
+
+		if (rand() % 100 < 1)
+		{
+			int dir = -1;
+			if (rand() % 100 > 50)
+				dir = 1;
+			auto enemy = new EnemyT5(glm::vec3(rand() % 300 * dir, 10, rand() % 300 * dir), player);
+			enemy->Init();
+			enemyPool.push_back(enemy);
+		}
 	}
 }
 

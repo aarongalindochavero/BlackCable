@@ -8,10 +8,13 @@
 #include "BCE/Graphic/Model.h"
 #include "BCE/Base/Platform.h"
 #include "BCE/Base/ShaderManager.h"
-#include "Player.h"
+#include "BCE/Physics/SphereCollider.h"
+
 
 using namespace BCE::Base;
 using namespace BCE::Graphics;
+
+class Player;
 
 class Enemy
 {
@@ -23,7 +26,10 @@ protected:
 	Platform* platform;
 	Transform transform;
 	Player* player;
+	SphereCollider* spCollider;
 public:
+	glm::vec3 GetTranslation();
+	float GetRadius();
 	virtual void Init() = 0;
 	virtual void Update()=0;
 	virtual void Draw() = 0;

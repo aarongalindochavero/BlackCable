@@ -43,6 +43,7 @@ public:
 	bool Input(std::map<int, bool> keys) override;
 	bool MouseInput(int x, int y, bool leftbutton);
 	void Update() override;
+	void CreateEnemies();
 	void Close() override;
 
 };
