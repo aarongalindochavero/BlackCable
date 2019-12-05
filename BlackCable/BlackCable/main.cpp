@@ -17,6 +17,7 @@ int main(int argc, char* argv[])
 // 1 arma 3d (carga de modelos) (tarea)
 // 2 enemigos low poly (tarea) 
 // mostrar daño *
+// disparar balas *
 // 1 arena props (tarea) 
 // cajas de municiones *
 // gameplay TB
